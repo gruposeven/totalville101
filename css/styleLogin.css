@@ -1,0 +1,153 @@
+body{
+	background-image: url('../imagens/banner2.jpg');
+	background-position: center;
+	background-size:cover;
+	display: flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+	.body_autenticacao{
+		background-color: white;
+		width: 300px;
+		height: 450px;
+		border: 2px solid black;
+		box-shadow: 0px 0px 10px black;
+		display: flex;
+		flex-direction:column;
+		align-items: center;
+	}
+/*Inicio*/
+
+		.body_autenticacao_inicio{
+		flex:1;
+		}
+			.body_autenticacao_inicio img{
+				width: 150px;
+			}
+/*Inicio-validador*/
+
+		.body_autenticacao_inicio_validador{
+			color:red;
+			font-weight: bold;
+			text-align: center;
+			flex:0.2;
+		}
+/*Meio*/
+		.body_autenticacao_meio{
+			flex:2;
+			display: flex;
+			justify-content:center;
+			align-items:center;
+		}
+			.body_autenticacao_meio form{
+				flex-direction:column;
+				justify-content:center;
+				align-items:center;
+				padding: 10px;
+				margin: 0;
+			}
+				.autenticacao_campo{
+					border: 2px solid black;
+					height: 30px;
+				}
+				.autenticacao_submit{
+					background-color: black;
+					color: white;
+					background-image: url('../imagens/cadeado.png');
+					background-size: 20px 20px;
+					background-repeat: no-repeat;
+					background-position: left;
+					padding-left: 10px;
+					width: 80px;
+					height: 40px;
+					text-align: right;
+					border-radius: 10px; 
+					font-size: 16px;
+				}
+				#autenticacao_form{
+					display: flex; 
+				}
+				#novoCadastro_form{
+					display: none;
+					margin-bottom: 10px;
+					
+				}
+					#submit_cadastro{
+							background-color: black;
+							background-image: url('../imagens/novocadastro.png');
+							width: 90px;
+
+						}
+				#esqueciSenha_form{
+					display: none; 
+				}
+					#submit_esqueci{
+							background-color: black;
+							background-image: url('../imagens/esqueci.png');
+							width: 110px;
+					}
+/*Fim*/
+		.body_autenticacao_fim{
+		flex:1;
+		background-color: #F2F2F2;
+		display: flex;
+		flex-direction:row;
+		justify-content:space-between;
+		width: 300px;
+		}
+			.body_autenticacao_fim_direito{
+			flex:1;
+			}
+				.body_autenticacao_fim_direito img{
+					height: 100px;
+				}
+			.body_autenticacao_fim_esquerdo{
+			flex:4;
+			background-color: #F2F2F2;
+			text-align: center;
+			font-size: 14px;
+			transition: all 1s linear;
+			}
+/*Opções*/
+.body_opcoes{
+	width: 300px;
+	height: 50px;
+	margin-top: 10px;
+	display: flex;
+	flex-direction:row;
+	justify-content:space-between;
+	align-items: center;
+}
+	.body_opcoes button{
+		background-color: #0404B4;
+		color: white;
+		padding-left: 10px;
+		width: 130px;
+		height: 40px;
+		text-align: right;
+		border-radius: 10px;
+		border: 2px solid black;
+		font-size: 14px; 
+	}
+		.body_opcoes_novo{
+		background-image: url('../imagens/novocadastro.png');
+		background-size: 40px 40px;
+		background-repeat: no-repeat;
+		background-position: left;
+		display: block;
+		}
+		.body_opcoes_autenticacao{
+		background-image: url('../imagens/novocadastro.png');
+		display: none;
+		background-size: 40px 40px;
+		background-repeat: no-repeat;
+		background-position: left;
+		}
+		.body_opcoes_esqueci{
+		background-image: url('../imagens/esqueci.png');
+		background-size: 40px 40px;
+		background-repeat: no-repeat;
+		background-position: left;
+		display: block;
+		}

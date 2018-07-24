@@ -14,3 +14,8 @@ Criação dos arquivos atas, convocaçõs eel login e sindico
 
 Adaptações dos links do Index atas e convocações
 
+Criação da página Login 
+
+Pendente: configurações.php e validador.php
+
+Pendente: Alteração de @Media no Index
