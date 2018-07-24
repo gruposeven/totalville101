@@ -48,7 +48,7 @@
 					<div class="anuncio_titulo">
 						<i><h1> Sistema em Implantação</h1></i>
 						<h2> Condômino, Atualize seu cadastro online para acessar o sistema</h2>
-					<a href="./"><div class="botao"><b>Cadastre-se...</b>
+					<a href="./"><div class="botao"><b>A partir de 01/08</b>
 					</div></a>
 					</div>
 
@@ -233,8 +233,7 @@
 							<div class="projeto_linha">
 							</div>
 								<a href="mailto:kelita.farias@totalville101.com.br">Síndico</a>
-								<a href="mailto:gabriel.fernandes@totalville101.com.br">Gerência Administrativa</a>
-								<a href="mailto:ariosvaldo.junior@totalville101.com.br">Administração</a>
+								<a href="mailto:admnistracao@totalville101.com.br">Administração</a>
 								<a href="mailto:conselho.fiscal@totalville101.com.br">Conselho Fiscal</a>
 					</div>
 				</div>
