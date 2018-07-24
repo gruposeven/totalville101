@@ -175,6 +175,10 @@ header{
 		flex-wrap: wrap;
 
 	}
+		article a{
+			text-decoration: none;
+			color: black;
+		}
 		.projeto{
 			width: 320px;
 			margin:10px;
@@ -219,6 +223,11 @@ header{
 				justify-content:center;
 				flex-wrap: wrap;
 			}
+				.projeto_filiadas a{
+					text-decoration: none;
+					color: black;
+					margin: auto;
+				}
 		.controladora{	
 			margin: auto;
 			width: 300px;
@@ -270,6 +279,7 @@ header{
 			justify-content:center;
 			background-color: black;
 			color: white;
+			margin-top: 20px;
 		}
 			footer .projeto_linha{
 				background-color: white;
@@ -324,9 +334,21 @@ header{
 			justify-content:center;
 			background-color: black;
 			color: white;
-			padding: 30px;
+			padding: 35px;
 			text-align: center;
 		}
+#atasAntigas{
+	color: black;
+	margin-top: 10px;
+	text-decoration: underline;
+	font-size: 14px;
+
+}
+#atasAnteriores{
+	background-color: #F7F2E0;
+	text-align: center;
+	border: 1px solid black;
+}
 /*Resposividade*/
 @media only screen and (min-width: 900px) and (max-width: 1040px){
 	article{

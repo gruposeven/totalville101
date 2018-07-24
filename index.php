@@ -17,7 +17,7 @@
 			<header>
 				<div class="container">
 					<div class="logo">
-					<img src="imagens/totalvillelogo.jpg">
+					<img src="imagens/novologo.jpg">
 					</div>
 					<div class="menu">
 						<nav>
@@ -31,12 +31,12 @@
 							</div>
 							<ul>
 								<li class="active"><a href="./"> Home</a></li>
-								<li><a href="./"> Reservas</a></li>
-								<li><a href="./"> Prestação de Contas</a></li>
-								<li><a href="./"> Assembléias</a></li>
-								<li><a href="./"> Taxa Condomínial</a></li>
-								<li><a href="./"> Negociações</a></li>
-								<li><a href="" target="_blanck"> Login </a></li>
+								<li><a href="login.php" target="_blank"> Reservas</a></li>
+								<li><a href="login.php" target="_blank"> Prestação de Contas</a></li>
+								<li><a href="atas.php" target="_blank"> Assembléias</a></li>
+								<li><a href="documentos/ConvencaoRegistrada.pdf" target="_blank"> Convenção </a></li>
+								<li><a href="documentos/RegimentoInterno.pdf" target="_blank"> Regimento</a></li>
+								<li><a href="login.php" target="_blank"> Negociações </a></li>
 							</ul>
 						</nav>
 					</div>
@@ -46,10 +46,6 @@
 			<section id="banner">
 				<div class="container column">
 					<div class="anuncio_titulo">
-						<i><h1> Sistema em Implantação</h1></i>
-						<h2> Condômino, Atualize seu cadastro online para acessar o sistema</h2>
-					<a href="./"><div class="botao"><b>A partir de 01/08</b>
-					</div></a>
 					</div>
 
 				</div>
@@ -59,7 +55,7 @@
 					<div class="container">
 						<!-- Artigos-->
 						<article>
-							<div class="projeto">
+							<a href="login.php" target="_blank"><div class="projeto">
 								<div class="projeto_titulo">Reserva de Churrasqueira 
 								</div>
 								<div class="projeto_linha">
@@ -71,8 +67,8 @@
 									Realize a reserva de churrasqueira sem burocracia e com pagamento facilitado
 									por cartão de crédito ou com pagamento na próxima taxa condominial.
 								</div>	
-							</div>	
-							<div class="projeto">
+							</div></a>	
+							<a href="atas.php" target="_blank"> <div class="projeto">
 								<div class="projeto_titulo">Assembleia Mista Online 
 								</div>
 								<div class="projeto_linha">
@@ -84,8 +80,8 @@
 									Participar e votar em Assembléia de Condomínio nunca ficou tão fácil. 
 									Com seu cadastro devidamente atualizado, você poderá participar de assembleias sem sair de casa.
 								</div>	
-							</div>	
-							<div class="projeto">
+							</div></a>	
+							<a href="login.php" target="_blank"><div class="projeto">
 								<div class="projeto_titulo">Reserva do Salão de Festa
 								</div>
 								<div class="projeto_linha">
@@ -97,8 +93,8 @@
 								Realize a reserva do Salão de Festa sem burocracia e com pagamento facilitado
 								por cartão de crédito ou com pagamento na próxima taxa condominial.
 								</div>	
-							</div>	
-							<div class="projeto ">
+							</div></a>	
+							<a href="login.php" target="_blank"><div class="projeto ">
 								<div class="projeto_titulo">Negociações
 								</div>
 								<div class="projeto_linha">
@@ -110,9 +106,9 @@
 								Negocie suas taxas condominiais em atraso sem burocracia e com parcelamentos em até 12x. 
 								Pagamentos por cartão de crédito ou diretamente em boletos.	
 								</div>	
-							</div>	
+							</div></a>	
 							<div class="projeto ">
-								<div class="projeto_titulo">Educação Esporte e Lazer
+								<a href="eel.php" target="_blank"><div class="projeto_titulo">Educação Esporte e Lazer
 								</div>
 								<div class="projeto_linha">
 								</div>
@@ -123,8 +119,8 @@
 									Projeto exclusivo para Quadra 101 com atividades de esporte, cursos e eventos.
 									<br> Levando mais saúde e Qualidade de Vida para dentro do nosso condomínio
 								</div>	
-							</div>	
-							<div class="projeto ">
+							</div></a>	
+							<a href="login.php" target="_blank"><div class="projeto ">
 								<div class="projeto_titulo">Classificados
 								</div>
 								<div class="projeto_linha">
@@ -136,7 +132,7 @@
 									Ofereça gratuitamente para vizinhança seus serviços e produtos e aumente sua renda.
 									Condôminos, o melhor produtos pode estar ao lado de sua casa. Conheça mais...
 								</div>	
-							</div>
+							</div></a>
 						
 						</article>
 
@@ -149,30 +145,30 @@
 								</div>
 								<div class="projeto_filiadas">
 									
-									<div class="filiadas">
+									<a href="documentos/ConvencaoRegistrada.pdf" target="_blank"><div class="filiadas">
 										<b><center>Convenção Coletiva</center></b>
 										<img src="imagens/convencao.png">
-									</div>
-									<div class="filiadas">
+									</div></a>
+									<a href="documentos/RegimentoInterno.pdf" target="_blank"><div class="filiadas">
 										<b><center>Regimento Interno</center></b>
 										<img src="imagens/pasta3.png">
-									</div>
-									<div class="filiadas">
+									</div></a>
+									<a href="documentos/orcamento2018.pdf" target="_blank"><div class="filiadas">
 										<b><center>Planej. Orçamentário</center></b>
 										<img src="imagens/planejamento.png">
 									</div>
-									<div class="filiadas">
+									<a href="atas.php" target="_blank"><div class="filiadas">
 										<b><center>Atas de Assembléia</center></b>
 										<img src="imagens/assembleia2.png">
-									</div>
-									<div class="filiadas">
+									</div></a>
+									<a href="sindico.php" target="_blank"><div class="filiadas">
 										<b><center>Responsável Legal</center></b>
 										<img src="imagens/responsavel.png">
-									</div>
-									<div class="filiadas">
+									</div></a>
+									<a href="login.php" target="_blank"><div class="filiadas">
 										<b><center>Contratos Vigentes</center></b>
 										<img src="imagens/contratos.png">
-									</div>
+									</div></a>
 								</div>
 							</div>
 							<div class="projeto coluna">
@@ -182,30 +178,30 @@
 								</div>
 								<div class="projeto_filiadas">
 									
-									<div class="filiadas">
+									<a href="login.php" target="_blank"><div class="filiadas">
 										<b><center>Receitas</center></b>
 										<img src="imagens/grafica.jpg">
-									</div>
-									<div class="filiadas">
+									</div></a>
+									<a href="login.php" target="_blank"><div class="filiadas">
 										<b><center>Despesas</center></b>
 										<img src="imagens/despesas.png">
-									</div>
-									<div class="filiadas">
+									</div></a>
+									<a href="login.php" target="_blank"><div class="filiadas">
 										<b><center>Taxa Extra</center></b>
 										<img src="imagens/grafica2.png">
-									</div>
-									<div class="filiadas">
+									</div></a>
+									<a href="login.php" target="_blank"><div class="filiadas">
 										<b><center>Folha de Pagamento</center></b>
 										<img src="imagens/folhapg2.png">
-									</div>
-									<div class="filiadas">
+									</div></a>
+									<a href="login.php" target="_blank"><div class="filiadas">
 										<b><center>Inadimplência</center></b>
 										<img src="imagens/inadimplencia.png">
-									</div>
-									<div class="filiadas">
+									</div></a>
+									<a href="login.php" target="_blank"><div class="filiadas">
 										<b><center>Fundo de Reserva</center></b>
 										<img src="imagens/fundoreserva.jpg">
-									</div>
+									</div></a>
 								</div>
 							</div>
 
