@@ -40,7 +40,7 @@
 						<input onfocus="focoNomePF()"id="cadastroNomePF" type="text" name="nome_pf" class="autenticacao_campo" placeholder="Nome" autocomplete="off"><br>
 						<input onfocus="focoSobrenomePF()"id="cadastroSobrenomePF" type="text" name="sobrenome_pf" class="autenticacao_campo" placeholder="Sobrenome" autocomplete="off"><br>
 						<input onfocus="focoEmail()"id="cadastroEmailPF" type="email" name="email_pf" class="autenticacao_campo" placeholder="E-mail" autocomplete="off"><br>
-						<input onfocus="focoCadastroCPF()" id="cadastroUsuario" type="text" name="NovoUsuario" class="autenticacao_campo" maxlength="11" placeholder="CPF" autocomplete="off"><br>
+						<input onfocus="focoCadastroCPF()" id="cadastroUsuario" type="number" name="NovoUsuario" class="autenticacao_campo" maxlength="11" placeholder="CPF" autocomplete="off"><br>
 						<input onfocus="focoCadastroSenha()"id="cadastroSenha" type="password" name="Novasenha" class="autenticacao_campo" placeholder="Senha" maxlength="6"autocomplete="off"><br>
 						<input type="submit" id="submit_cadastro" class="autenticacao_submit" value="Cadastro">
 					</form>
