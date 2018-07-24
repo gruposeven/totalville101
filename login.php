@@ -30,7 +30,7 @@
 
 				<div class="body_autenticacao_meio">
 					<form id="autenticacao_form" method="POST" onsubmit="return validarAutenticacao()">
-						<input type="text" name="usuario" id="autenticacaoUsuario"class="autenticacao_campo"  maxlength="11" placeholder="Usuario" 
+						<input type="number" name="usuario" id="autenticacaoUsuario"class="autenticacao_campo"  maxlength="11" placeholder="Usuario" 
 							onfocus="focoUsuario()" autocomplete="off"><br>
 						<input type="password" name="senha" id="autenticacaoSenha"class="autenticacao_campo" placeholder="Senha" maxlength="6"
 							onfocus="focoSenha()" autocomplete="off"><br>
