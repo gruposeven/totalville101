@@ -45,7 +45,7 @@
 						<input type="submit" id="submit_cadastro" class="autenticacao_submit" value="Cadastro">
 					</form>
 					<form id="esqueciSenha_form" method="POST" onsubmit="return validarEsqueci()">
-						<input onfocus="focoUsuario()" type="text" name="esqueciUsuario" id="esqueciUsuario" class="autenticacao_campo" placeholder="CPF"  maxlength="11" autocomplete="off"><br>
+						<input onfocus="focoUsuario()" type="number" name="esqueciUsuario" id="esqueciUsuario" class="autenticacao_campo" placeholder="CPF"  maxlength="11" autocomplete="off"><br>
 						<input onfocus="focoEmail()"type="email" name="esqueciEmail" id="esqueciEmail" class="autenticacao_campo" placeholder="E-mail" autocomplete="off"><br>
 						<input type="submit" id="submit_esqueci" class="autenticacao_submit" value="Nova Senha">
 					</form>
