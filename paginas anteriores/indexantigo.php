@@ -12,9 +12,10 @@
 		<script type="text/javascript" src="biblioteca/jquery-3.2.1.min.js"></script>
 
 		<body>
+
 			<!-- CABEÇALHO-->
 			<header>
-				<div class="Menucontainer">
+				<div class="container">
 					<div class="logo">
 					<img src="imagens/novologo.jpg">
 					</div>
@@ -41,16 +42,20 @@
 					</div>
 				</div>
 			</header>
-			<!-- BANNER-->
+		<!-- BANNER-->
 			<section id="banner">
-
+				<div class="container column">
+					<div class="anuncio_titulo">
+					</div>
+				</div>
 			</section>
-			<!-- CORPO-->
-			<section id="corpo">
-				<div class="Corpocontainer">
-					<article>
-						<a href="login.php" target="_blank"><div class="Articleopcoes">
-							<div class="projeto_titulo">Reserva de Churrasqueira 
+					<!-- CORPO-->
+				<section id="corpo">
+					<div class="container">
+						<!-- Artigos-->
+						<article>
+							<a href="login.php" target="_blank"><div class="projeto">
+								<div class="projeto_titulo">Reserva de Churrasqueira 
 								</div>
 								<div class="projeto_linha">
 								</div>
@@ -62,9 +67,8 @@
 									por cartão de crédito ou com pagamento na próxima taxa condominial.
 								</div>	
 							</div></a>	
-						
-						<a href="atas.php" target="_blank"><div class="Articleopcoes">
-							<div class="projeto_titulo">Assembleia Mista Online 
+							<a href="atas.php" target="_blank"> <div class="projeto">
+								<div class="projeto_titulo">Assembleia Mista Online 
 								</div>
 								<div class="projeto_linha">
 								</div>
@@ -75,10 +79,9 @@
 									Participar e votar em Assembléia de Condomínio nunca ficou tão fácil. 
 									Com seu cadastro devidamente atualizado, você poderá participar de assembleias sem sair de casa.
 								</div>	
-							</div></a>
-						
-						<a href="login.php" target="_blank"><div class="Articleopcoes">
-							<div class="projeto_titulo">Reserva do Salão de Festa
+							</div></a>	
+							<a href="login.php" target="_blank"><div class="projeto">
+								<div class="projeto_titulo">Reserva do Salão de Festa
 								</div>
 								<div class="projeto_linha">
 								</div>
@@ -89,10 +92,9 @@
 								Realize a reserva do Salão de Festa sem burocracia e com pagamento facilitado
 								por cartão de crédito ou com pagamento na próxima taxa condominial.
 								</div>	
-							</div></a>
-						
-						<a href="login.php" target="_blank"><div class="Articleopcoes">
-							<div class="projeto_titulo">Negociações
+							</div></a>	
+							<a href="login.php" target="_blank"><div class="projeto ">
+								<div class="projeto_titulo">Negociações
 								</div>
 								<div class="projeto_linha">
 								</div>
@@ -103,9 +105,9 @@
 								Negocie suas taxas condominiais em atraso sem burocracia e com parcelamentos em até 12x. 
 								Pagamentos por cartão de crédito ou diretamente em boletos.	
 								</div>	
-							</div></a>
-						<a href="eel.php" target="_blank"><div class="Articleopcoes">
-							<div class="projeto_titulo">Educação Esporte e Lazer
+							</div></a>	
+							<div class="projeto ">
+								<a href="eel.php" target="_blank"><div class="projeto_titulo">Educação Esporte e Lazer
 								</div>
 								<div class="projeto_linha">
 								</div>
@@ -116,9 +118,9 @@
 									Projeto exclusivo para Quadra 101 com atividades de esporte, cursos e eventos.
 									<br> Levando mais saúde e Qualidade de Vida para dentro do nosso condomínio
 								</div>	
-							</div></a>
-						<a href="login.php" target="_blank"><div class="Articleopcoes">
-							<div class="projeto_titulo">Classificados
+							</div></a>	
+							<a href="login.php" target="_blank"><div class="projeto ">
+								<div class="projeto_titulo">Classificados
 								</div>
 								<div class="projeto_linha">
 								</div>
@@ -130,14 +132,18 @@
 									Condôminos, o melhor produtos pode estar ao lado de sua casa. Conheça mais...
 								</div>	
 							</div></a>
-					</article>
-					<aside>
-						<div class="Asideopcoes">
-							<div class="projeto_titulo">Documentos
-							</div>
-							<div class="projeto_linha">
-							</div>
-							<div class="projeto_filiadas">
+						
+						</article>
+
+						<!-- Coluna-->
+						<aside>
+							<div class="projeto">
+								<div class="projeto_titulo">Documentos
+								</div>
+								<div class="projeto_linha">
+								</div>
+								<div class="projeto_filiadas">
+									
 									<a href="documentos/ConvencaoRegistrada.pdf" target="_blank"><div class="filiadas">
 										<b><center>Convenção Coletiva</center></b>
 										<img src="imagens/convencao.png">
@@ -163,14 +169,14 @@
 										<img src="imagens/contratos.png">
 									</div></a>
 								</div>
-							
-						</div>		
-						<div class="Asideopcoes">
-							<div class="projeto_titulo">Prestação de Contas
 							</div>
-							<div class="projeto_linha">
-							</div>
-							<div class="projeto_filiadas">
+							<div class="projeto coluna">
+								<div class="projeto_titulo">Prestação de Contas
+								</div>
+								<div class="projeto_linha">
+								</div>
+								<div class="projeto_filiadas">
+									
 									<a href="login.php" target="_blank"><div class="filiadas">
 										<b><center>Receitas</center></b>
 										<img src="imagens/grafica.jpg">
@@ -196,16 +202,15 @@
 										<img src="imagens/fundoreserva.jpg">
 									</div></a>
 								</div>
+							</div>
 
-						</div>
+						</aside>
+					</div>
 					
-
-					</aside>
-				</div>
-			</section>
-			<!-- Rodapé-->
+				</section>
+			<!--Rodapé-->
 			<footer>
-				<div class="Menucontainer">
+				<div class="container">
 					<div class="contatos">
 							<div class="projeto_titulo">Endereço
 							</div>
@@ -217,7 +222,7 @@
 								</div>
 						
 					</div>
-					<div class="departamentos">
+					<div class="lista_servicos">
 							<div class="projeto_titulo">Departamentos
 							</div>
 							<div class="projeto_linha">
@@ -231,14 +236,7 @@
 			<div class="copyright">
 				© Copyright 2017-2018 totalville101.com.br - All Rights Reserved
 			</div>	
-
-
-
-
-
-
-
-
-
-
+		</body>
+	</head>
+</html>
 

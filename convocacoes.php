@@ -15,7 +15,7 @@
 
 			<!-- CABEÇALHO-->
 			<header>
-				<div class="container">
+				<div class="Menucontainer">
 					<div class="logo">
 					<img src="imagens/novologo.jpg">
 					</div>
@@ -45,10 +45,10 @@
 			<center><h1> Convocações </h1></center>
 					<!-- CORPO-->
 				<section id="corpo">
-					<div class="container">
+					<div class="Corpocontainer">
 						<!-- Artigos-->
 						<article>
-							<a href=""><div class="projeto">
+							<a href=""><div class="Articleopcoes">
 								<div class="projeto_titulo">A Definir
 								</div>
 								<div class="projeto_linha">
@@ -62,7 +62,7 @@
 									Pauta: Deliberação e votação - Modelo Cobertura Estacionamento Blocos de Casas
 								</div>	
 							</div></a>	
-							<a href=""><div class="projeto">
+							<a href=""><div class="Articleopcoes">
 								<div class="projeto_titulo">A Definir
 								</div>
 								<div class="projeto_linha">
@@ -81,7 +81,7 @@
 							</section>
 <!--Rodapé-->
 			<footer>
-				<div class="container">
+				<div class="Menucontainer">
 					<div class="contatos">
 							<div class="projeto_titulo">Endereço
 							</div>
@@ -93,7 +93,7 @@
 								</div>
 						
 					</div>
-					<div class="lista_servicos">
+					<div class="departamentos">
 							<div class="projeto_titulo">Departamentos
 							</div>
 							<div class="projeto_linha">

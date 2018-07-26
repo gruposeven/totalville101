@@ -15,7 +15,7 @@
 
 			<!-- CABEÇALHO-->
 			<header>
-				<div class="container">
+				<div class="Menucontainer">
 					<div class="logo">
 					<img src="imagens/novologo.jpg">
 					</div>
@@ -45,10 +45,10 @@
 
 					<!-- CORPO-->
 				<section id="corpo">
-					<div class="container">
+					<div class="Corpocontainer">
 						<!-- Artigos-->
 						<article>
-							<a href="documentos/20_02_2016.pdf" target="_blank"><div class="projeto">
+							<a href="documentos/20_02_2016.pdf" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">20 de Fevereiro de 2016
 								</div>
 								<div class="projeto_linha">
@@ -63,7 +63,7 @@
 								</div>	
 							</div></a>	
 							
-							<a href="documentos/10_04_2016.pdf" target="_blank"><div class="projeto">
+							<a href="documentos/10_04_2016.pdf" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">10 de Abril de 2016
 								</div>
 								<div class="projeto_linha">
@@ -77,7 +77,7 @@
 									Pauta:Eleição de Subsíndicos e Conselheiros Fiscais 
 								</div>	
 							</div></a>	
-							<a href="documentos/20_05_2017.pdf" target="_blank"><div class="projeto">
+							<a href="documentos/20_05_2017.pdf" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">20 de Maio de 2017
 								</div>
 								<div class="projeto_linha">
@@ -89,7 +89,7 @@
 									Pauta: Eleição Sindico(a) Biênio 2017/2019
 								</div>	
 							</div></a>	
-							<a href="documentos/12_03_2017.pdf" target="_blank"><div class="projeto">
+							<a href="documentos/12_03_2017.pdf" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">12 de Março de 2017
 								</div>
 								<div class="projeto_linha">
@@ -102,7 +102,7 @@
 									Pauta: Previsão Orçamentária 2017
 								</div>	
 							</div></a>	
-							<a href="documentos/.pdf" target="_blank"><div class="projeto">
+							<a href="documentos/.pdf" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">10 de Março de 2018
 								</div>
 								<div class="projeto_linha">
@@ -116,7 +116,7 @@
 									
 								</div>	
 							</div></a>	
-							<a href="convocacoes.php" target="_blank"><div class="projeto">
+							<a href="convocacoes.php" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">Próxima Assembléia (convocação)
 								</div>
 								<div class="projeto_linha">
@@ -133,15 +133,15 @@
 				</section>		
 					<!-- CORPO-->
 					<section id="corpo">
-						<div class="container">
+						<div class="Corpocontainer">
 							<article>
-							<div class="projeto" id="atasAnteriores">
+							<div class="Articleopcoes" id="atasAnteriores">
 								<div class="projeto_titulo">Assembléias Anteriores (2012)
 								</div>
 								<a id="atasAntigas" href="documentos/24_07_2012.pdf" target="_blank">24 de Julho de 2012</a>
 							</div>
 
-							<div class="projeto" id="atasAnteriores">
+							<div class="Articleopcoes" id="atasAnteriores">
 								<div class="projeto_titulo">Assembléias Anteriores (2013)
 								</div>
 								<a id="atasAntigas" href="documentos/17_03_2013.pdf" target="_blank"> 17 de Março de 2013</a>
@@ -156,7 +156,7 @@
 								<a id="atasAntigas" href="documentos/26_10_2013.pdf" target="_blank"> 26 de Outubro de 2013</a>
 								<a id="atasAntigas" href="documentos/23_11_2013.pdf" target="_blank"> 23 de Novembro de 2013</a>
 							</div>
-							<div class="projeto" id="atasAnteriores">
+							<div class="Articleopcoes" id="atasAnteriores">
 								<div class="projeto_titulo">Assembléias Anteriores (2015)
 								</div>
 								<a id="atasAntigas" href="documentos/26_01_2015.pdf" target="_blank">26 de Janeiro de 2015</a>
@@ -172,7 +172,7 @@
 					</section>
 <!--Rodapé-->
 			<footer>
-				<div class="container">
+				<div class="Menucontainer">
 					<div class="contatos">
 							<div class="projeto_titulo">Endereço
 							</div>
@@ -184,7 +184,7 @@
 								</div>
 						
 					</div>
-					<div class="lista_servicos">
+					<div class="departamentos">
 							<div class="projeto_titulo">Departamentos
 							</div>
 							<div class="projeto_linha">

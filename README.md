@@ -18,4 +18,4 @@ Criação da página Login
 
 Pendente: configurações.php e validador.php
 
-Pendente: Alteração de @Media no Index
+Concluido: Alteração de @Media no Index - Modificação na responsivade do aside

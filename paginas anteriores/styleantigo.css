@@ -1,0 +1,515 @@
+body{
+	font-family: Verdana, Arial;
+	font-size: 12px; 
+	margin: 0;
+}
+header{
+	display: flex;
+	justify-content:center;
+	height: 120px;
+}
+.container{
+	width: 1040px;
+	justify-content:space-between;
+	display: flex;
+}
+	.container .logo{
+		display: flex;
+		align-items: center;
+		margin: 10px;
+	}
+	.container .logo img{
+		width: 140px;
+	}	
+	.container .menu{
+		display: flex;
+		jutify-content:center;
+		align-items: center;
+	}
+		nav ul{
+			display: flex;
+		}
+		nav ul, nav li{
+			align-content:center;
+			List-style: none;
+			padding: 0;
+			margin: 0;
+		}
+			.container .menu a{
+				display: block;
+				text-decoration: none;
+				color: black;
+				font-size: 14px;
+				padding: 15px;
+			}
+			.menu a:hover {
+				background-color: blue;
+				color: white;
+			}
+			.menu nav .active a{
+				background-color: red;
+				color: white;
+			}
+			.menu_mobile{
+				display: none;
+				width: 40px;
+				height: 40px;
+				margin-top: 40px;
+				margin-bottom: 40px;
+				margin-right: 20px;
+			}
+			.menu_mobile_linha{
+				height: 3px;
+				background-color: blue;
+			}
+
+
+#banner{
+	background-image:url('../imagens/entrada.jpg');
+	background-position: center;
+	background-size:cover;
+
+	height: 600px;
+	display: flex;
+	justify-content:center;
+}
+.column{
+	flex-direction: column;
+
+}
+	.anuncio_titulo{
+		flex:1;
+		display: flex;
+		flex-direction: column;
+	}
+		.anuncio_titulo h1{
+			color: white;
+			margin: 25px;
+			font-size: 50px;
+			text-shadow: 0px 1px 0px #000000;
+			margin: 0;
+			padding: 0;
+		}
+		.anuncio_titulo h2{
+			color: white;
+			margin: 25px;
+			font-size: 25px;
+			margin: 0;
+			padding: 0;
+			margin-top: 15px;
+		}
+.botao{
+			width: 150px;
+			height: 30px;
+			margin-top: 10px;
+			border: 3px solid white;
+			color: white;
+			background-color: blue;
+			line-height: 30px;
+			box-shadow: 1px 2px 2px white;
+		}
+	a{
+	text-decoration: none;
+	}		
+	
+	.anuncio_menu{
+		height: 150px;
+		display: flex;
+		flex-direction: rows;
+		justify-content: center;
+	}
+		.anuncio_menu1, .anuncio_menu2, .anuncio_menu3{
+			display: flex;
+			flex-direction: column;
+			align-itens: center;
+			padding-left: 10px
+		}
+		.anuncio_menu h1{
+			color: white;
+			font-size: 18px;
+			padding: 0;
+			margin: 0;
+			margin-top: 10px;
+			text-align: center;
+		}
+		.anuncio_menu h2{
+			color: white;
+			font-size: 12px;
+			
+		}
+		.anuncio_menu .botao{
+			width: 150px;
+			height: 30px;
+			margin-bottom: 10px;
+			border: 3px solid white;
+			color: white;
+			line-height: 30px;
+			box-shadow: 1px 2px 2px white;
+		}
+		.anuncio_menu a{
+			text-decoration: none;
+
+		}
+				.anuncio_menu1{
+					flex:1;
+					background-color: #0000FF;
+				}
+
+				.anuncio_menu2{
+					flex:1;
+					background-color: #0101DF;
+				}
+				.anuncio_menu3{
+					flex:1;
+					background-color: #0404B4;
+				}
+
+#corpo{
+	display: flex;
+	justify-content:center;
+}
+	article{
+		flex:2;
+		display: flex;
+		justify-content:center;
+		flex-wrap: wrap;
+
+	}
+		article a{
+			text-decoration: none;
+			color: black;
+		}
+		.projeto{
+			width: 320px;
+			margin:10px;
+			display:flex;
+			flex-direction: column;
+		}
+			.projeto_titulo{
+				font-size: 18px;
+				margin-top: 10px;
+			}
+			.projeto_linha{
+			height: 2px;
+			width: 40px;
+			background-color: blue;
+			margin-top: 5px;
+			}
+			.projeto_imagem{
+			margin: auto;
+			margin-top: 10px;
+			}
+				.projeto_imagem img{
+				width: 300px;
+				height: 150px;
+				border: 1px solid black;
+				box-shadow: 1px 1px 1px black;
+				}
+			.projeto_texto{
+			font-size: 10px;
+			margin-top: 10px;
+			height: 70px;
+			}
+
+	aside{
+		flex:1;
+		display: flex;
+		justify-content:center;
+		flex-wrap: wrap;
+	}
+			.projeto_filiadas{
+				margin-top: 10px;
+				display: flex;
+				justify-content:center;
+				flex-wrap: wrap;
+			}
+				.projeto_filiadas a{
+					text-decoration: none;
+					color: black;
+					margin: auto;
+				}
+		.controladora{	
+			margin: auto;
+			width: 300px;
+			height: 100px;
+			margin-top: 10px;
+			border: 1px solid black;
+			box-shadow: 1px 1px 1px black;
+			background-color: white;	
+		}
+			.controladora img{
+				height: 100px;
+				width: 300px;
+
+			}
+
+			.filiadas{
+				margin: auto;
+				width: 150px;
+				height: 100px;
+				margin-top: 10px;
+				border: 1px solid black;
+				box-shadow: 1px 1px 1px black;
+				background-color: white;	
+			}
+				.filiadas img{
+					height: 85px;
+					width: 150px;
+			}
+			.projeto_sociais{
+				margin-top: 10px;
+				display: flex;
+				justify-content:center;
+				flex-wrap: wrap;
+				border: 1px solid black;
+				box-shadow: 1px 1px 1px black;
+			}
+				.projeto_sociais img{
+									width: 25px;
+									height: 25px;
+									margin-top: 2.5px;
+									margin-bottom: 2.5px;
+									margin-right: 5px;
+				}
+				.facebook{
+					margin-left: 10px;
+				}
+		footer{
+			display: flex;
+			justify-content:center;
+			background-color: black;
+			color: white;
+			margin-top: 20px;
+		}
+			footer .projeto_linha{
+				background-color: white;
+				margin-bottom: 10px;
+			}
+			footer .projeto_titulo{
+				font-size: 12px;
+			}
+			.lista_filiada ul{
+				list-style: none;
+				font-size: 10px;
+				padding: 0;
+			}
+			.lista_filiada li{
+				margin-bottom: 5px;
+			}
+			.lista_filiada a{
+				text-decoration: none;
+				color: white;
+			}
+				.lista_filiada{
+				flex:1;
+				}
+			.contatos{
+			flex:2;
+			width: 320px;
+			display:flex;
+			flex-direction: column;
+			}
+				.contatos a{
+					color: white;
+					text-decoration: none;
+				}
+
+					.enderecos{
+					margin-top: 20px;
+					}
+				.lista_servicos{
+				flex:1;
+				}
+	
+					.lista_servicos a{
+						text-decoration: none;
+						color:white;
+						margin-top:5px;
+						margin-left: 10px;
+						display: block;
+
+					}
+		.copyright{
+			display: flex;
+			justify-content:center;
+			background-color: black;
+			color: white;
+			padding: 35px;
+			text-align: center;
+		}
+#atasAntigas{
+	color: black;
+	margin-top: 10px;
+	text-decoration: underline;
+	font-size: 14px;
+
+}
+#atasAnteriores{
+	background-color: #F7F2E0;
+	text-align: center;
+	border: 1px solid black;
+}
+/*Resposividade*/
+@media only screen and (min-width: 900px) and (max-width: 1040px){
+	article{
+		flex:1;
+	}
+	aside{
+		display:none;
+	}
+}
+@media only screen and (min-width: 850px) and (max-width: 900px){
+	.lista_servicos{
+		display: none;
+	}
+	article{
+		flex:1;
+	}
+	aside{
+		display:none;
+	}
+}	
+@media only screen and (min-width: 690px) and (max-width: 850px){
+	.anuncio_titulo h2{
+		font-size: 18px;
+	}
+	.anuncio_menu{
+		display: none;
+	}
+	#banner{
+		height: 250px;
+	}
+	article{
+		flex:1;
+	}
+	aside{
+		display:none;
+	}
+	.lista_servicos{
+		display: none;
+	}
+	nav ul{
+		flex-direction:column;
+		display: none;
+		position: absolute;
+    	left: 0;
+    	width: 100%;
+    	background-color: white;
+	}
+	header{
+		height: auto;
+	}
+	.logo{
+		padding: 20px;
+	}
+	.menu_mobile{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+}
+@media only screen and (min-width: 350px) and (max-width: 690px){
+	.anuncio_titulo h2{
+		font-size: 18px;
+	}
+	.anuncio_menu{
+		display: none;
+	}
+	#banner{
+		height: 250px;
+	}
+	article{
+		flex:1;
+	}
+	aside{
+		display:none;
+	}
+	.lista_servicos{
+		display: none;
+	}
+	nav ul{
+		flex-direction:column;
+		display: none;
+		position: absolute;
+    	left: 0;
+    	width: 100%;
+    	background-color: white;
+	}
+	header{
+		height: auto;
+	}
+	.logo{
+		padding: 20px;
+	}
+	.menu_mobile{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+	.lista_filiada{
+		display: none;
+	}
+	.anuncio_titulo h1{
+		font-size: 30px;
+	}
+}
+@media only screen and (max-width: 350px){
+	.anuncio_titulo h2{
+		font-size: 14px;
+		width: 190px;
+		margin-top: 20px;
+	}
+	.anuncio_menu{
+		display: none;
+	}
+	#banner{
+		height: 250px;
+	}
+	article{
+		flex:1;
+	}
+	aside{
+		display:none;
+	}
+	.lista_servicos{
+		display: none;
+	}
+	nav ul{
+		flex-direction:column;
+		display: none;
+		position: absolute;
+    	left: 0;
+    	width: 100%;
+    	background-color: white;
+	}
+	header{
+		height: auto;
+	}
+	.logo{
+		padding: 20px;
+	}
+	.menu_mobile{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+	.lista_filiada{
+		display: none;
+	}
+	.anuncio_titulo h1{
+		font-size: 18px;
+
+	}
+	.projeto{
+		width: 300px;
+	}
+	.contatos{
+		width: 300px;
+	}
+	.enderecos{
+		text-align: center;
+	}
+
+}
+
+
