@@ -16,6 +16,17 @@ Adaptações dos links do Index atas e convocações
 
 Criação da página Login 
 
-Pendente: configurações.php e validador.php
+Concluido: configurações.php e validador.php
 
 Concluido: Alteração de @Media no Index - Modificação na responsivade do aside
+
+Implantação do Bando de Dados 
+
+Criação das páginas secundárias 
+
+Configuração das Sessões e acesso ao banco de dados interno e externo 
+
+Repasse do banco de dados SQL externo 
+
+Pendente: "?Esqueci Senha" 
+

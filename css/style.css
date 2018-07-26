@@ -135,6 +135,25 @@ header{
 	}
 }
 /*Cabeçalho- Fim*/
+
+/*Sessão - Inicio*/
+
+.sessao{
+	width: 320px;
+	margin: auto;
+	margin-bottom: 10px; 
+	background-color: #F7F2E0;
+	text-align: center;
+	border: 1px solid black;
+}
+.sessao button{
+	margin-left: 10px;
+	margin-bottom: 5px;
+	margin-top: 5px;	
+}	
+
+/*Sessão - Fim*/
+
 /*Banner- Inicio*/
 #banner{
 	background-image:url('../imagens/entrada.jpg');

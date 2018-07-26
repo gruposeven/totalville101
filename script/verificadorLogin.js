@@ -49,8 +49,6 @@ function validarCadastro(){
 						alert("Informe sua senha com 6 dígitos");
 						return false;
 					}else{
-						alert("Analise concluída - "+cadastroNomePF+" "+cadastroSobrenomePF+"");
-						return true;
 
 					}
 				}

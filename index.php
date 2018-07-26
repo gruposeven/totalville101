@@ -4,6 +4,10 @@
 		<meta charset="UTF-8">
 		<meta id="viewport" name="viewport" content="width=device-width, user-scalable=no">
 
+		<?php
+		require "configuracoes.php";
+		?>
+
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="biblioteca/normalize.css">
 		<link rel="shortcut icon" type="text/css" href="imagens/sistema.ico">
@@ -30,17 +34,41 @@
 							</div>
 							<ul>
 								<li class="active"><a href="./"> Home</a></li>
-								<li><a href="login.php" target="_blank"> Reservas</a></li>
-								<li><a href="login.php" target="_blank"> Prestação de Contas</a></li>
-								<li><a href="atas.php" target="_blank"> Assembléias</a></li>
+								<li><a href="reserva.php"> Reservas</a></li>
+								<li><a href="contas.php"> Prestação de Contas</a></li>
+								<li><a href="atas.php"> Assembléias</a></li>
 								<li><a href="documentos/ConvencaoRegistrada.pdf" target="_blank"> Convenção </a></li>
 								<li><a href="documentos/RegimentoInterno.pdf" target="_blank"> Regimento</a></li>
-								<li><a href="login.php" target="_blank"> Negociações </a></li>
+								<li><a href="negociacoes.php"> Negociações </a></li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</header>
+			<div class="sessao">
+<?php
+			session_start();
+			if(isset($_SESSION['usuario']) && empty($_SESSION['usuario'])== false){
+
+                    $usuario= addslashes($_SESSION['usuario']);
+                    $sql="SELECT * FROM pessoafisica WHERE cpf='$usuario'";
+                    $sql= $pdo->query($sql);
+                    $dados = $sql->fetch();
+                    $cpf=$dados['cpf'];
+                    $nome_pf=$dados['nome_pf'];
+                    
+                    
+                        echo''.$nome_pf.' CPF: '.$cpf.'';
+                        echo'<a href="logout_servidor.php"><button class="botao_sair" id="botao_sair">Sair</button></a>';
+
+                    }else{
+                        echo'Usuário não autenticado';
+                        echo'<a href="login.php"><button class="botao_sair" id="botao_sair">Login</button></a>';
+
+                    }
+          ?>
+                
+			</div>
 			<!-- BANNER-->
 			<section id="banner">
 
@@ -49,7 +77,7 @@
 			<section id="corpo">
 				<div class="Corpocontainer">
 					<article>
-						<a href="login.php" target="_blank"><div class="Articleopcoes">
+						<a href="reserva.php"><div class="Articleopcoes">
 							<div class="projeto_titulo">Reserva de Churrasqueira 
 								</div>
 								<div class="projeto_linha">
@@ -63,7 +91,7 @@
 								</div>	
 							</div></a>	
 						
-						<a href="atas.php" target="_blank"><div class="Articleopcoes">
+						<a href="atas.php"><div class="Articleopcoes">
 							<div class="projeto_titulo">Assembleia Mista Online 
 								</div>
 								<div class="projeto_linha">
@@ -77,7 +105,7 @@
 								</div>	
 							</div></a>
 						
-						<a href="login.php" target="_blank"><div class="Articleopcoes">
+						<a href="reserva.php"><div class="Articleopcoes">
 							<div class="projeto_titulo">Reserva do Salão de Festa
 								</div>
 								<div class="projeto_linha">
@@ -91,7 +119,7 @@
 								</div>	
 							</div></a>
 						
-						<a href="login.php" target="_blank"><div class="Articleopcoes">
+						<a href="negociacoes.php"><div class="Articleopcoes">
 							<div class="projeto_titulo">Negociações
 								</div>
 								<div class="projeto_linha">
@@ -117,7 +145,7 @@
 									<br> Levando mais saúde e Qualidade de Vida para dentro do nosso condomínio
 								</div>	
 							</div></a>
-						<a href="login.php" target="_blank"><div class="Articleopcoes">
+						<a href="classificados.php"><div class="Articleopcoes">
 							<div class="projeto_titulo">Classificados
 								</div>
 								<div class="projeto_linha">
@@ -150,15 +178,15 @@
 										<b><center>Planej. Orçamentário</center></b>
 										<img src="imagens/planejamento.png">
 									</div>
-									<a href="atas.php" target="_blank"><div class="filiadas">
+									<a href="atas.php"><div class="filiadas">
 										<b><center>Atas de Assembléia</center></b>
 										<img src="imagens/assembleia2.png">
 									</div></a>
-									<a href="sindico.php" target="_blank"><div class="filiadas">
+									<a href="sindico.php"><div class="filiadas">
 										<b><center>Responsável Legal</center></b>
 										<img src="imagens/responsavel.png">
 									</div></a>
-									<a href="login.php" target="_blank"><div class="filiadas">
+									<a href="contratos.php"><div class="filiadas">
 										<b><center>Contratos Vigentes</center></b>
 										<img src="imagens/contratos.png">
 									</div></a>
@@ -171,27 +199,27 @@
 							<div class="projeto_linha">
 							</div>
 							<div class="projeto_filiadas">
-									<a href="login.php" target="_blank"><div class="filiadas">
+									<a href="receitas.php"><div class="filiadas">
 										<b><center>Receitas</center></b>
 										<img src="imagens/grafica.jpg">
 									</div></a>
-									<a href="login.php" target="_blank"><div class="filiadas">
+									<a href="despesas.php"><div class="filiadas">
 										<b><center>Despesas</center></b>
 										<img src="imagens/despesas.png">
 									</div></a>
-									<a href="login.php" target="_blank"><div class="filiadas">
+									<a href="extra.php"><div class="filiadas">
 										<b><center>Taxa Extra</center></b>
 										<img src="imagens/grafica2.png">
 									</div></a>
-									<a href="login.php" target="_blank"><div class="filiadas">
+									<a href="fopag.php"><div class="filiadas">
 										<b><center>Folha de Pagamento</center></b>
 										<img src="imagens/folhapg2.png">
 									</div></a>
-									<a href="login.php" target="_blank"><div class="filiadas">
+									<a href="inadimplencia.php"><div class="filiadas">
 										<b><center>Inadimplência</center></b>
 										<img src="imagens/inadimplencia.png">
 									</div></a>
-									<a href="login.php" target="_blank"><div class="filiadas">
+									<a href="fundo.php"><div class="filiadas">
 										<b><center>Fundo de Reserva</center></b>
 										<img src="imagens/fundoreserva.jpg">
 									</div></a>

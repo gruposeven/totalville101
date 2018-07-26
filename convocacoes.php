@@ -4,6 +4,11 @@
 		<meta charset="UTF-8">
 		<meta id="viewport" name="viewport" content="width=device-width, user-scalable=no">
 
+		<?php
+		require "configuracoes.php";
+		?>
+
+
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="biblioteca/normalize.css">
 		<link rel="shortcut icon" type="text/css" href="imagens/sistema.ico">
@@ -31,18 +36,43 @@
 							</div>
 							<ul>
 								<li class="active"><a href="./"> Home</a></li>
-								<li><a href="login.php" target="_blank"> Reservas</a></li>
-								<li><a href="login.php" target="_blank"> Prestação de Contas</a></li>
-								<li><a href="atas.php" target="_blank"> Assembléias</a></li>
+								<li><a href="reservas.php"> Reservas</a></li>
+								<li><a href="contas.php"> Prestação de Contas</a></li>
+								<li><a href="atas.php"> Assembléias</a></li>
 								<li><a href="documentos/ConvencaoRegistrada.pdf" target="_blank"> Convenção </a></li>
 								<li><a href="documentos/RegimentoInterno.pdf" target="_blank"> Regimento</a></li>
-								<li><a href="login.php" target="_blank"> Negociações </a></li>
+								<li><a href="negociacoes.php"> Negociações </a></li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</header>
 			<center><h1> Convocações </h1></center>
+			<div class="sessao">
+<?php
+			session_start();
+			if(isset($_SESSION['usuario']) && empty($_SESSION['usuario'])== false){
+
+                    $usuario= addslashes($_SESSION['usuario']);
+                    $sql="SELECT * FROM pessoafisica WHERE cpf='$usuario'";
+                    $sql= $pdo->query($sql);
+                    $dados = $sql->fetch();
+                    $cpf=$dados['cpf'];
+                    $nome_pf=$dados['nome_pf'];
+                    
+                    
+                        echo'<b>'.$nome_pf.' </b>CPF: '.$cpf.'';
+                        echo'<a href="logout_servidor.php"><button class="botao_sair" id="botao_sair">Sair</button></a>';
+
+                    }else{
+                        echo'Usuário não autenticado';
+                        echo'<a href="login.php"><button class="botao_sair" id="botao_sair">Login</button></a>';
+
+                    }
+ ?>
+                
+			</div>
+
 					<!-- CORPO-->
 				<section id="corpo">
 					<div class="Corpocontainer">

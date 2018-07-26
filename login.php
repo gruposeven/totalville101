@@ -3,6 +3,7 @@
 		<title>Total Ville 101</title>
 		<meta charset="UTF-8">
 		<meta id="viewport" name="viewport" content="width=device-width, user-scalable=no">		
+<!--Acesso Banco de Dados-->
 		<?php
 		require "configuracoes.php";
 		?>
@@ -16,6 +17,14 @@
 <!--javascript-->
 		<script type="text/javascript" src="script/scriptLogin.js"></script>
 		<script type="text/javascript" src="script/verificadorLogin.js"></script>
+<!--Autenticação-->
+<?php
+    session_start();
+    if(isset($_SESSION['usuario']) && empty($_SESSION['usuario'])== false){
+        header("Location: index.php");    
+    }  
+?>
+
 <!--Corpo-->
 		<body>
 			<div id = "body_autenticacao" class="body_autenticacao">
