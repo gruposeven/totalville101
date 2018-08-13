@@ -69,3 +69,82 @@
           ?>
                 
 			</div>
+					<!-- CORPO-->
+				<section id="corpo">
+					<div class="Corpocontainer">
+						<!-- Artigos-->
+						<article>
+							<a href="" target="_blank"><div class="Articleopcoes">
+								<div class="projeto_titulo">Contrato - Administradora
+								</div>
+								<div class="projeto_linha">
+								</div>
+								<div class="projeto_imagem">
+									<img src="imagens/grafica2.png">
+								</div>
+								<div class="projeto_texto">
+									 
+								</div>	
+							</div></a>	
+							
+							<a href="documentos/contrato_centro_sul.pdf" target="_blank"><div class="Articleopcoes">
+								<div class="projeto_titulo">Contrato - Terceirização 
+								</div>
+								<div class="projeto_linha">
+								</div>
+								<div class="projeto_imagem">
+									<img src="imagens/folhapg.png">
+								</div>
+								<div class="projeto_texto">
+									Contrato finalizado em 21 de Julho de 2018
+								</div>	
+							</div></a>
+	
+							<a href="" target="_blank"><div class="Articleopcoes">
+								<div class="projeto_titulo">Contrato - Medição de Água
+								</div>
+								<div class="projeto_linha">
+								</div>
+								<div class="projeto_imagem">
+									<img src="imagens/grafica.jpg">
+								</div>
+								<div class="projeto_texto">
+									 
+								</div>	
+							</div></a>	
+
+						</div>
+					</section>
+<!--Rodapé-->
+			<footer>
+				<div class="Menucontainer">
+					<div class="contatos">
+							<div class="projeto_titulo">Endereço
+							</div>
+							<div class="projeto_linha">
+							</div>
+							<div class="enderecos">
+							Rua 600 Lote 601 Quadra 101 Setor Meirelles Santa Maria, Distrito Federal <br>
+							Telefone: <a href="tel:61-3395-6155">(61) 3395-6155</a>
+								</div>
+						
+					</div>
+					<div class="departamentos">
+							<div class="projeto_titulo">Departamentos
+							</div>
+							<div class="projeto_linha">
+							</div>
+								<a href="mailto:kelita.farias@totalville101.com.br">Síndico</a>
+								<a href="mailto:admnistracao@totalville101.com.br">Administração</a>
+								<a href="mailto:conselho.fiscal@totalville101.com.br">Conselho Fiscal</a>
+					</div>
+				</div>
+			</footer>
+			<div class="copyright">
+				© Copyright 2017-2018 totalville101.com.br - All Rights Reserved
+			</div>	
+		</body>
+	</head>
+</html>
+
+
