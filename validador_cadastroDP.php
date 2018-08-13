@@ -82,7 +82,7 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 			}else{
 
 //Criação da Pasta Pessoa Fisica
-			$cpf = addslashes($_POST['dpcpf']);
+	$cpf = addslashes($_POST['dpcpf']);
    mkdir("pessoafisica/$cpf");
    mkdir("pessoafisica/$cpf/DocumentosPessoais");
 
@@ -126,6 +126,34 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 			<span aria-hidden='true'>&times;</span>
 			</button> 
 			</div>";
+
+//E-mail de novo cadastro realizado 
+
+$administrador = "administracao@totalville101.com.br";
+$assuntoconfirma = "Confirmação de Cadastro";
+$corpo = "Nome: ".$nome_pf." E-mail: ".$email_pf." CPF: ".$cpf." Criado em: ".$data_criacao." Status: ".$validacao;
+
+$cabecalho = "From: suporte@totalville101.com.br"."/r/n".
+													"Reply-To: ".$email_pf."/r/n".
+													"X-Mailer: PHP/".phpversion();
+
+mail($administrador, $assuntoconfirma, $corpo, $cabecalho);
+
+// Mandando e-mail de validação 
+
+$id_pf = $pdo->lastInsertId();
+$md5_id = md5($id);
+
+$link = 'http://www.totalville101.com.br/index.php?valida='.$md5;
+
+$assuntovalida = "Total Ville 101 - Validação de Cadastro";
+$mensagemvalida = "Prezado(a) ".$nome_pf."/r/n".
+																		"Clique no link abaixo para confirmar seu cadastro em nosso sistema:"."/r/n".
+																		"Clique: ".$link;
+
+mail($email_pf, $assuntovalida, $mensagemvalida, $cabecalho);
+
+
 //Inserção de Imagem 
 					if(isset($_FILES['dpimagem_pf']) && ($_FILES['dpimagem_pf'] != "")){
 					$imagem_pf = $_FILES['dpimagem_pf'];

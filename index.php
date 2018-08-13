@@ -22,6 +22,33 @@
 
 		<script type="text/javascript" src="script/script1.js"></script>
 
+<?php
+
+$valida = $_GET['valida'];
+if (!empty($valida)){
+	$sql="UPDATE usuarios SET usuario_status='$validado' WHERE MD5(id) ='$valida'";
+                $sql=$pdo->query($sql); 
+echo "<div class='modal fade show' id='validacao_email'>
+	<div class='modal-dialog modal-dialog-centered modal-sm'> 
+		<div class='modal-content'>
+			<div class='modal-header'>
+				<h5 class='modal-titulo'>Acesso ao Sistema</h5>
+				<button class='close' data-dismiss='modal'>
+					<span>&times;</span>
+				</button>
+			</div>
+			<div class='modal-body'>
+				<h3>E-mail validado com sucesso</h3>
+			</div>
+			<div class='modal-footer justify-content-between'>
+			<button class='btn btn-primary' data-toggle='modal' data-target='#login' data-dismiss='modal'>Login</button>
+			<button class='btn btn-danger' data-dismiss='modal'>Fechar</button>
+			</div>
+		</div>	
+	</div>
+</div>";
+}
+?>
 		<body>
 <!-- Navegação-->
 
