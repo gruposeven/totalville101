@@ -9,6 +9,7 @@
 		?>
 <!--Icone-->
 		<link rel="shortcut icon" type="text/css" href="imagens/sistema.ico">
+
 <!--Bibliotecas-->
 		<link rel="stylesheet" type="text/css" href="biblioteca/normalize.css">
 		<script type="text/javascript" src="biblioteca/jquery-3.2.1.min.js"></script>
@@ -17,6 +18,7 @@
 <!--javascript-->
 		<script type="text/javascript" src="script/scriptLogin.js"></script>
 		<script type="text/javascript" src="script/verificadorLogin.js"></script>
+
 <!--Autenticação-->
 <?php
     session_start();

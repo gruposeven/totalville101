@@ -7,13 +7,15 @@
 		<?php
 		require "configuracoes.php";
 		?>
-
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="biblioteca/normalize.css">
+		<link rel="stylesheet" type="text/css" href="biblioteca/bootstrap.min.css">
+
 		<link rel="shortcut icon" type="text/css" href="imagens/sistema.ico">
-		
-		<script type="text/javascript" src="script/script1.js"></script>
+
 		<script type="text/javascript" src="biblioteca/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="biblioteca/bootstrap.min.js"></script>
+		<script type="text/javascript" src="script/script1.js"></script>
 
 		<body>
 			<!-- CABEÇALHO-->

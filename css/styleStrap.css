@@ -1,0 +1,37 @@
+.inicio{
+	text-align: center;
+	}
+.inicio img{
+	width: 140px;
+}
+
+.meio{
+	text-align: center;
+
+}
+.fim{
+	text-align: center;
+	font-size: 14px;
+}
+.corpo{
+}
+.menu{
+background-color: #BDBDBD;
+font-size: 12px;
+}
+.conteudo{
+background-color: green;
+}
+nav{
+	font-size: 12px;
+}
+form{
+	font-size: 12px;
+	font-weight: bold;
+}
+input{
+	margin-top:10px;
+}
+#AlertaCadastro{
+	font-size: 12px;
+}
