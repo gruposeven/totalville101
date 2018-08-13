@@ -195,8 +195,6 @@
 								<a id="atasAntigas" href="documentos/10_09_2015.pdf" target="_blank">10 de Setembro de 2015</a>
 
 							</div>
-
-
 							</article>
 						</div>
 					</section>
