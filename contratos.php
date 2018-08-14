@@ -74,7 +74,7 @@
 					<div class="Corpocontainer">
 						<!-- Artigos-->
 						<article>
-							<a href="" target="_blank"><div class="Articleopcoes">
+							<a href="documentos/Contrato_AeS.pdf" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">Contrato - Administradora
 								</div>
 								<div class="projeto_linha">
@@ -96,11 +96,11 @@
 									<img src="imagens/folhapg.png">
 								</div>
 								<div class="projeto_texto">
-									Contrato finalizado em 21 de Julho de 2018
+									Contrato finalizado em 31 de Julho de 2018
 								</div>	
 							</div></a>
 	
-							<a href="" target="_blank"><div class="Articleopcoes">
+							<a href="documentos/CONTRATO_HIDRUS.pdf" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">Contrato - Medição de Água
 								</div>
 								<div class="projeto_linha">
