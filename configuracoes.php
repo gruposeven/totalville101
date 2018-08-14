@@ -14,9 +14,9 @@ $tempo_versao = date("d/m/Y H:i:s", $diferenca_tempo); // Tempo de duração da 
 //Conexão ao Banco de Dados
 
 
-//$dsn = 'mysql:dbname=gcond;host=localhost'; //conexão banco de dados servidor interno (Versão BETA)
+$dsn = 'mysql:dbname=gcond;host=localhost'; //conexão banco de dados servidor interno (Versão BETA)
 
-$dsn = "mysql:dbname=gcondville101;host=gcondville101.mysql.dbaas.com.br";//conexão banco de dados servidor externo
+//$dsn = "mysql:dbname=gcondville101;host=gcondville101.mysql.dbaas.com.br";//conexão banco de dados servidor externo
 
 $dbuser = "gcondville101";
 $dbpass = "gcond811215";

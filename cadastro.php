@@ -90,7 +90,7 @@ require "validador_acesso.php";
 						form-control-sm" placeholder="Informe sua senha">
 					</div>
 					<div class="form-group"><center>
-						<input type="submit" value="Cadastrar" class="btn btn-primary"></center>
+						<input type="submit" value="Entrar" class="btn btn-primary"></center>
 					</div>
 				</form>
 			</div>

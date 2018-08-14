@@ -90,7 +90,7 @@ require "validador_acesso.php";
 						form-control-sm" placeholder="Informe sua senha">
 					</div>
 					<div class="form-group"><center>
-						<input type="submit" value="Entrar" class="btn btn-primary"></center>
+						<input type="submit" value="Cadastrar" class="btn btn-primary"></center>
 					</div>
 				</form>
 			</div>
@@ -101,3 +101,60 @@ require "validador_acesso.php";
 		</div>	
 	</div>
 </div>
+
+<?php
+
+$valida = $_GET['valida'];
+$usuario_status = "Validado";
+if (!empty($valida)){
+	$sql="UPDATE usuarios SET usuario_status='$usuario_status' WHERE MD5(id) ='$valida'";
+    $sql=$pdo->query($sql); 
+
+//E-mail de cadastro validado 
+
+  				$sql="SELECT * FROM usuarios WHERE MD5(id)='$valida'";
+				$sql=$pdo->query($sql);
+		        $dados = $sql->fetch();
+				$usuario=$dados['usuario'];
+		        $usuario_status=$dados['usuario_status'];
+
+				$sql="SELECT * FROM pessoafisica WHERE cpf='$usuario'";
+				$sql=$pdo->query($sql);
+		        $dados = $sql->fetch();
+				$cpf=$dados['cpf'];
+		        $email_pf=$dados['email_pf'];
+
+	       		$_SESSION['usuario']= $dados['cpf'];
+
+
+	$emailsender = "suporte@totalville101.com.br";
+
+	/* Verifica qual é o sistema operacional do servidor para ajustar o cabeçalho de forma correta. */
+	
+	if(PHP_OS == "Linux") $quebra_linha = "\n"; //Se for Linux
+	elseif(PHP_OS == "WINNT") $quebra_linha = "\r\n"; // Se for Windows
+	else die("Este script nao esta preparado para funcionar com o sistema operacional de seu servidor");
+
+
+	$emaildestinatario = "administracao@totalville101.com.br";
+	$assuntoconfirma = "Cadastro Validado";
+	$corpo = "<p>E-mail: ".$email_pf."</p><p>CPF:".$cpf."</p><p>Status: ".$usuario_status;
+
+	$cabecalho = "MIME-Version: 1.1".$quebra_linha;
+	$cabecalho .= "Content-type: text/html; charset=iso-8859-1".$quebra_linha;
+	$cabecalho .= "From: ".$emailsender.$quebra_linha;
+	$cabecalho .= "Return-Path: ".$emailsender.$quebra_linha;
+	$cabecalho .=  "Reply-To: ".$email_pf.$quebra_linha;
+	$cabecalho .=  "X-Mailer: PHP/".phpversion();
+
+mail($emaildestinatario, $assuntoconfirma, $corpo, $cabecalho, "-r". $emailsender);
+
+echo "<div class='container-fluid'><div class='row align-items-center'><div class='inicio col'>
+	<div class='alert alert-primary alert dismissible show' role='alert' id='AlertaCadastro'>
+	E-mail Validado!  ".$email_pf."</div><a class='btn btn-success' href='index.php'>Página Inicial</a></div>
+	</div></div>";
+}
+?>
+
+
+</body>

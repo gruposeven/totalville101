@@ -3,29 +3,18 @@
 require "configuracoes.php";
 
 	if(isset($_SESSION['usuario']) && empty($_SESSION['usuario'])== false){
-
-        $usuario_autentic= addslashes($_SESSION['usuario']);
+       $usuario_autentic= addslashes($_SESSION['usuario']);
         $sql="SELECT * FROM usuarios WHERE usuario='$usuario_autentic'";
         $sql= $pdo->query($sql);
         $dados = $sql->fetch();
         $usuario_status=$dados['usuario_status'];
-
-		if($usuario_status=="validado"){
+		if($usuario_status=="Validado"){
 			?><script>$(document).ready(function(){
 			$('#cadastrar_unidade').addClass('active').removeClass('disabled');});</script>
 			<?php }    	
-    	
-    	
-
-
     }else{
-
     }
-
-
-
 //Cadastro novo usuário
-
 if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 	if(isset($_POST['dpcpf']) && ($_POST['dpcpf'] != "")){
 		if(isset($_POST['dprg_pf']) && ($_POST['dprg_pf'] != "")){
@@ -55,7 +44,7 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 																		if(preg_match('/^[0-9]{4,5}([- ]?[0-9]{4})?$/', $telefone_pf)){
 																			if(isset($_POST['dpnasc_pf']) 
 																				&& ($_POST['dpnasc_pf'] != "")){
-
+//Verificação de CPF e E-mail no banco de dados 
 	$sql="SELECT * FROM pessoafisica WHERE cpf='$cpf'";
 	$sql=$pdo->query($sql);
 
@@ -69,27 +58,19 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 		}else{
 				$sql="SELECT * FROM pessoafisica WHERE email_pf='$email_pf'";
 				$sql=$pdo->query($sql);
-
 			if ($sql->rowCount() > 0){
-
 			echo"<div class='alert alert-lg alert-warning alert dismissible show' role='alert' id='AlertaCadastro'>
 			E-mail já cadastrado! <a href='esqueci.php' target='_blank'>Acesse Esqueci Senha</a>
 			<button class='close' data-dismiss='alert' aria-label='fechar'>
 			<span aria-hidden='true'>&times;</span>
 			</button> 
 			</div>";	
-
 			}else{
-
 //Criação da Pasta Pessoa Fisica
 	$cpf = addslashes($_POST['dpcpf']);
-   mkdir("pessoafisica/$cpf");
-   mkdir("pessoafisica/$cpf/DocumentosPessoais");
-
-//Término da Criação das Pastas
-
+	mkdir("pessoafisica/$cpf");
+	mkdir("pessoafisica/$cpf/DocumentosPessoais");
 //Inicio da Inclusão de dados
-
 	$data_criacao = date("Y/m/d H:i:s");
 	$nome_pf = addslashes($_POST['dpnome_pf']);
 	$email_pf = addslashes($_POST['dpemail_pf']);
@@ -105,7 +86,7 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 	$endereco_cep_pf = addslashes($_POST['dpcep_pf']);
 	$senha = md5(addslashes($_POST['dpsenha']));
 	$nasc_pf = addslashes($_POST['dpnasc_pf']);
-	$validacao = "validar";
+	$validacao = "Falta validar";
 
 	            $sql="INSERT INTO pessoafisica SET nome_pf='$nome_pf', rg_pf='$rg_pf', 
 	            email_pf='$email_pf', telefone_pf='$telefone_pf', endereco_rua_pf='$endereco_rua_pf', 
@@ -119,39 +100,40 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
                 data_criacao='$data_criacao'";
                 $sql=$pdo->query($sql); 
 
-
 			echo"<div class='alert alert-lg alert-success alert dismissible show' role='alert' id='AlertaCadastro'>
 			Cadastro realizado com sucesso!
 			<button class='close' data-dismiss='alert' aria-label='fechar'>
 			<span aria-hidden='true'>&times;</span>
 			</button> 
 			</div>";
-
 //E-mail de novo cadastro realizado 
+	$emailsender = "suporte@totalville101.com.br";
 
-$administrador = "administracao@totalville101.com.br";
-$assuntoconfirma = "Confirmação de Cadastro";
-$corpo = "Nome: ".$nome_pf." E-mail: ".$email_pf." CPF: ".$cpf." Criado em: ".$data_criacao." Status: ".$validacao;
+	/* Verifica qual é o sistema operacional do servidor para ajustar o cabeçalho de forma correta. */
+	if(PHP_OS == "Linux") $quebra_linha = "\n"; //Se for Linux
+	elseif(PHP_OS == "WINNT") $quebra_linha = "\r\n"; // Se for Windows
+	else die("Este script nao esta preparado para funcionar com o sistema operacional de seu servidor");
 
-$cabecalho = "From: suporte@totalville101.com.br"."/r/n".
-													"Reply-To: ".$email_pf."/r/n".
-													"X-Mailer: PHP/".phpversion();
 
-mail($administrador, $assuntoconfirma, $corpo, $cabecalho);
+	$emaildestinatario = "administracao@totalville101.com.br";
+	$assuntoconfirma = "Cadastro Realizado";
+	$corpo = "<p>Nome: ".$nome_pf."</p><p>E-mail: ".$email_pf."</p><p>CPF:".$cpf."</p><p>Criado em: ".$data_criacao."</p><p>Status: ".$validacao;
+	$cabecalho = "MIME-Version: 1.1".$quebra_linha;
+	$cabecalho .= "Content-type: text/html; charset=iso-8859-1".$quebra_linha;
+	$cabecalho .= "From: ".$emailsender.$quebra_linha;
+	$cabecalho .= "Return-Path: ".$emailsender.$quebra_linha;
+	$cabecalho .=  "Reply-To: ".$email_pf.$quebra_linha;
+	$cabecalho .=  "X-Mailer: PHP/".phpversion();
 
+	mail($emaildestinatario, $assuntoconfirma, $corpo, $cabecalho, "-r". $emailsender);
 // Mandando e-mail de validação 
-
 $id_pf = $pdo->lastInsertId();
-$md5_id = md5($id);
+$md5_id = md5($id_pf);
+$link = 'http://www.totalville101.com.br/valida_email.php?valida='.$md5_id;
+$assuntovalida = "Total Ville 101 - Valide de Cadastro";
+$mensagemvalida = "<h3>Prezado(a) ".$nome_pf."</h3><p>Clique no link abaixo para confirmar seu cadastro em nosso sistema:</p><p>Clique: ".$link;
 
-$link = 'http://www.totalville101.com.br/index.php?valida='.$md5;
-
-$assuntovalida = "Total Ville 101 - Validação de Cadastro";
-$mensagemvalida = "Prezado(a) ".$nome_pf."/r/n".
-																		"Clique no link abaixo para confirmar seu cadastro em nosso sistema:"."/r/n".
-																		"Clique: ".$link;
-
-mail($email_pf, $assuntovalida, $mensagemvalida, $cabecalho);
+mail($email_pf, $assuntovalida, $mensagemvalida, $cabecalho, "-r". $emailsender);
 
 
 //Inserção de Imagem 
@@ -253,7 +235,6 @@ Para alterar seu e-mail cadastrado faça seu login e retorne aos seus Dados Pess
 									</button> 
 									</div>";
  						}
-
 						}else{
 										echo"<div class='alert alert-lg alert-warning alert dismissible show' role='alert' id='AlertaCadastro'>
 										Imagem não arquivada!
@@ -261,12 +242,10 @@ Para alterar seu e-mail cadastrado faça seu login e retorne aos seus Dados Pess
 										<span aria-hidden='true'>&times;</span>
 										</button> 
 										</div>";
-
 						}
-
 					}
 //Inserindo Modal de Validação
-				if($validacao == "validar"){ ?><script>$(document).ready(function(){
+				if($validacao == "Falta validar"){ ?><script>$(document).ready(function(){
 							$('#confirmacao').modal('show');});</script>
 			<?php }
 			}
@@ -426,11 +405,6 @@ Para alterar seu e-mail cadastrado faça seu login e retorne aos seus Dados Pess
 		</div>";
 	}
 }else{
-	echo"<div class='alert alert-lg alert-primary alert dismissible show'role='alert' id='AlertaCadastro'>
-		Vamos iniciar nosso cadastro!
-		<button class='close' data-dismiss='alert' aria-label='fechar'>
-		<span aria-hidden='true'>&times;</span>
-		</button> 
-		</div>";
+
 }
 
