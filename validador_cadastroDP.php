@@ -397,12 +397,9 @@ Para alterar seu e-mail cadastrado faça seu login e retorne aos seus Dados Pess
 			</div>";
 		}
 	}else{
-		echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
+		echo "<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
 		CPF não informado!
-		<button class='close' data-dismiss='alert' aria-label='fechar'>
-		<span aria-hidden='true'>&times;</span>
-		</button> 
-		</div>";
+		</div><script>alert('CPF não informado');history.go(-1)</script>";
 	}
 }else{
 

@@ -12,14 +12,15 @@ require "configuracoes.php";
         $nome_pf_autentic=$dados['nome_pf'];
 
 	        echo''.$nome_pf_autentic.' ';
-	        echo'<a href="logout_servidor.php"><button class="btn btn-outline-primary btn-sm">Sair
-	        </button></a>';
+	        echo'<a class= "btn btn-outline-primary btn-sm" href="../logout_servidor.php">Sair
+	        </a>';
 
     }else{
         echo'Usuário não autenticado ';
         echo'<button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#login">Login</button>';
 
     }
+
 
 //Autenticação
 
@@ -39,6 +40,7 @@ if(isset($_POST['login_usuario']) && ($_POST['login_usuario'] != "")
 		$usuario_aut=$dados['usuario'];
 
 		$_SESSION['usuario']= $dados['usuario'];
+		$_SESSION['usuario_status']=$dados['usuario_status'];
 
 		$sql="SELECT * FROM pessoafisica WHERE cpf='$usuario_aut'";
 		$sql=$pdo->query($sql);
@@ -72,5 +74,26 @@ if(isset($_POST['login_usuario']) && ($_POST['login_usuario'] != "")
 }else{
 
 }
-	
+//Habilitação de cadastro
+	if(isset($_SESSION['usuario_status']) && empty($_SESSION['usuario_status'])== false){
+       $usuario_status= addslashes($_SESSION['usuario_status']);
+        if(($usuario_status=="Validado") OR ($usuario_status=="Programador")){
+			?><script>$(document).ready(function(){
+			$('#cadastrar_unidade').addClass('active').removeClass('disabled');});</script>
+			<?php }
+    }
+//Habilitação de sistema
+	if(isset($_SESSION['usuario_status']) && empty($_SESSION['usuario_status'])== false){
+       $usuario_status= addslashes($_SESSION['usuario_status']);
+        if(($usuario_status=="Sindico") OR ($usuario_status=="Programador") OR ($usuario_status=="Gerente")
+        	OR ($usuario_status=="Administradora") OR ($usuario_status=="Administrativo")){
+			?><script>$(document).ready(function(){
+			$('#cadastro_pessoa_fisica').removeClass('disabled');
+				document.getElementById('cadastro_pessoa_fisica').style.color = 'blue';
+				document.getElementById('cadastro_pessoa_fisica').style.backgroundColor = '#F2F2F2';});</script>
+
+
+			<?php }
+
+    }
 

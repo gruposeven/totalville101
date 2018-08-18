@@ -15,3 +15,21 @@ Quarta fase - criação ambiente gerencia
 Quinta fase - criação cadastro de unidade e alteração de dados cadastrais 
 
 Quinta fase - criação ambiente administradora   
+
+$usuarios_status autorizados para Sistema = 
+
+	- Programador
+	- Sindico 
+	- Conselho 
+	- Gerente
+	- Administradora
+	- Administrativo 
+
+$usuarios_status sem autorização de sistema = 
+
+	- Falta Validar 
+	- Validado
+	- Proprietario
+	- Locatario 
+	- Procurador 
+	- Dependente

@@ -5,24 +5,22 @@
 		<meta id="viewport" name="viewport" content="width=device-width, user-scalable=no, shrink-to-fit=no">
 
 		<?php
-		require "configuracoes.php";
+		require "../configuracoes.php";
 		?>
 
 
-		<link rel="stylesheet" type="text/css" href="biblioteca/normalize.css">
-		<link rel="stylesheet" type="text/css" href="biblioteca/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/styleStrap.css">
+		<link rel="stylesheet" type="text/css" href="../biblioteca/normalize.css">
+		<link rel="stylesheet" type="text/css" href="../biblioteca/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/styleStrap.css">
 
 
-		<link rel="shortcut icon" type="text/css" href="imagens/sistema.ico">
+		<link rel="shortcut icon" type="text/css" href="../imagens/sistema.ico">
 
-		<script type="text/javascript" src="biblioteca/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="biblioteca/bootstrap.bundle.min.js"></script>
-
+		<script type="text/javascript" src="../biblioteca/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../biblioteca/bootstrap.bundle.min.js"></script>
 		<script type="text/javascript" src="script/script.js"></script>
 
-</head>
-
+	</head>
 <!-- Modal Login Inicio-->
 <div class="modal fade" id="login">
 	<div class="modal-dialog modal-dialog-centered modal-sm"> 
@@ -57,13 +55,12 @@
 		</div>	
 	</div>
 </div>
-
-
-<body>
+		<body>
 <!-- Navegação-->
-				<div class="container">
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-					<a href="./" class="navbar-brand" id="titulo">Total Ville Quadra 101</a>
+			<div class="container-fluid">
+				<nav class="navbar navbar-expand-lg navbar-light bg-light">
+					<a href="../" class="navbar-brand" id="titulo">Total Ville Quadra 101
+					</a>
 					<button class="navbar-toggler" data-toggle="collapse" data-target="#navemenu">
 						<span class="navbar-toggler-icon">
 						</span>
@@ -82,25 +79,30 @@
 							<a href="negociacoes.php" class="nav-item nav-link">Negociação</a>
 							<a href="reserva.php" class="nav-item nav-link">Reservas</a>
 							<a href="circular.php" class="nav-item nav-link">Comunicados</a>
-							<a href="./sistema/sistema.php" class="nav-item nav-link" target="_blank">Sistema</a>
 
 						</div>
 					</div> 
-				</nav>
-			</div>
-<!-- CABEÇALHO-->
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="cabecalho col-sm-6">
-					<img class= "img-responsive" src="imagens/novologo.jpg">
-					</div>
-					<div class="cabecalho col-sm-6">
-<?php
-	session_start();
-require "validador_acesso.php";
+				<?php
+				session_start();
+				require "../validador_acesso.php";
+				?>
+			</nav>
+		</div>
+		<hr>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-4" id="corpo1">
 
-?>
+				<?php
+				require "menu_sistema.php";
+				?>
+
 					</div>
+				<div class="col-8" id="corpo2">
+					<img class="img-fluid" src="../imagens/novologo.jpg">
 				</div>
 			</div>
-		<hr>
+		</div>
+
+
+

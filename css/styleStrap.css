@@ -1,26 +1,9 @@
-.inicio{
+.cabecalho{
 	text-align: center;
+	font-size: 12px;
 	}
-.inicio img{
-	width: 140px;
-}
-
-.meio{
-	text-align: center;
-
-}
-.fim{
-	text-align: center;
-	font-size: 14px;
-}
-.corpo{
-}
-.menu{
-background-color: #BDBDBD;
-font-size: 12px;
-}
-.conteudo{
-background-color: green;
+.cabecalho img{
+	max-width: 140px;
 }
 nav{
 	font-size: 12px;
@@ -34,4 +17,28 @@ input{
 }
 #AlertaCadastro{
 	font-size: 12px;
+}
+@media only screen and (min-width: 375px) and (max-width: 425px){
+.navbar-toggler{
+	margin-bottom: 10px;
+}
+
+}
+@media only screen and (max-width: 375px){
+nav #titulo{
+	font-size: 12px;
+}
+.navbar-toggler{
+	margin-bottom: 10px;
+}
+#corpo1 a{
+	font-size: 10px;
+}
+
+}
+/*Corpo Sistema*/
+#corpo1{
+font-size: 12px;
+}
+#corpo2{
 }

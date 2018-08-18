@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Total Ville 101</title>
@@ -20,53 +19,8 @@
 		<script type="text/javascript" src="biblioteca/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="biblioteca/bootstrap.bundle.min.js"></script>
 
-		<script type="text/javascript" src="script/script1.js"></script>
-
-		<body>
-<!-- Navegação-->
-
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-					<a href="./" class="navbar-brand">Total Ville Quadra 101</a>
-					<button class="navbar-toggler" data-toggle="collapse" data-target="#navemenu">
-						<span class="navbar-toggler-icon">
-						</span>
-					</button>
-
-					<div class="navbar-collapse collapse" id="navemenu">
-						<div class="navbar-nav">
-							<a href="./" class="nav-item nav-link">Home</a>
-							<a href="cadastro.php" class="nav-item nav-link active">Cadastro</a>
-							<a href="contas.php" class="nav-item nav-link">Prestação de Contas</a>
-							<a href="atas.php" class="nav-item nav-link">Assembléias</a>
-							<a href="documentos/ConvencaoRegistrada.pdf" class="nav-item nav-link" 
-							target="_blank">Convenção</a>
-							<a href="documentos/RegimentoInterno.pdf" class="nav-item nav-link" 
-							target="_blank">Regimento</a>
-							<a href="negociacoes.php" class="nav-item nav-link">Negociação</a>
-							<a href="reserva.php" class="nav-item nav-link">Reservas</a>
-							<a href="circular.php" class="nav-item nav-link">Comunicados</a>
-						</div>
-					</div> 
-				</nav>
-<!-- CABEÇALHO-->
-			<div class="container-fluid">
-				<div class="row align-items-center">
-					<div class="inicio col-sm">
-					<img src="imagens/novologo.jpg">
-					</div>
-					<div class="meio col-md">
-					<h3>G-COND <small class="text-muted">Cadastramento</small></h3>
-					</div>
-					<div class="fim col-md-5">
-<?php
-session_start();
-require "validador_acesso.php";
-
-?>
-					</div>
-				</div>
-			</div>
-		<hr>
+		<script type="text/javascript" src="script/script.js"></script>
+	</head>
 <!-- Modal Login Inicio-->
 <div class="modal fade" id="login">
 	<div class="modal-dialog modal-dialog-centered modal-sm"> 
@@ -101,7 +55,55 @@ require "validador_acesso.php";
 		</div>	
 	</div>
 </div>
-<!-- Modal Login Término-->
+		<body>
+<!-- Navegação-->
+				<div class="container">
+				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+					<a href="./" class="navbar-brand" id="titulo">Total Ville Quadra 101</a>
+					<button class="navbar-toggler" data-toggle="collapse" data-target="#navemenu">
+						<span class="navbar-toggler-icon">
+						</span>
+					</button>
+
+					<div class="navbar-collapse collapse" id="navemenu">
+						<div class="navbar-nav">
+							<a href="./" class="nav-item nav-link active">Home</a>
+							<a href="cadastro.php" class="nav-item nav-link">Cadastro</a>
+							<a href="contas.php" class="nav-item nav-link">Contas</a>
+							<a href="atas.php" class="nav-item nav-link">Assembléias</a>
+							<a href="documentos/ConvencaoRegistrada.pdf" class="nav-item nav-link" 
+							target="_blank">Convenção</a>
+							<a href="documentos/RegimentoInterno.pdf" class="nav-item nav-link" 
+							target="_blank">Regimento</a>
+							<a href="negociacoes.php" class="nav-item nav-link">Negociação</a>
+							<a href="reserva.php" class="nav-item nav-link">Reservas</a>
+							<a href="circular.php" class="nav-item nav-link">Comunicados</a>
+							<a href="./sistema/sistema.php" class="nav-item nav-link" target="_blank">Sistema</a>
+
+						</div>
+					</div> 
+				</nav>
+			</div>
+
+<!-- CABEÇALHO-->
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="cabecalho col-sm-4">
+					<img class= "img-responsive" src="imagens/novologo.jpg">
+					</div>
+					<div class="cabecalho col-sm-4">
+					<h4>G-COND <small class="text-muted">Cadastramento</small></h4>
+					</div>
+					<div class="cabecalho col-sm-4">
+<?php
+session_start();
+require "validador_acesso.php";
+
+?>
+					</div>
+				</div>
+			</div>
+		<hr>
 
 <!-- CORPO-->
 		<div class="container">
