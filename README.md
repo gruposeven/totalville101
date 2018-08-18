@@ -5,7 +5,10 @@ Páginas e sistema ainda não publicado.
 Primeira fase - criação da pagina de cadastro e novo banco de dados.
 
 	- Cadastro com validação realizado e testado com banco de dados externo
-	- Nova adaptação modal para validação de cadastro  
+	- Nova adaptação modal para validação de cadastro
+	  
+
+		** verificar cadastro sem foto não abre modal de confirmação 
 
 Segunda fase - Criação do sistema v1.0 
 

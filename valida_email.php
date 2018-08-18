@@ -19,7 +19,7 @@
 		<script type="text/javascript" src="biblioteca/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="biblioteca/bootstrap.bundle.min.js"></script>
 
-		<script type="text/javascript" src="script/script1.js"></script>
+		<script type="text/javascript" src="script/script.js"></script>
 
 </head>
 
@@ -54,10 +54,10 @@
 <!-- CABEÇALHO-->
 			<div class="container-fluid">
 				<div class="row align-items-center">
-					<div class="inicio col-md-6">
+					<div class="cabecalho col-md-6">
 					<img src="imagens/novologo.jpg">
 					</div>
-					<div class="fim col-md-6">
+					<div class="cabecalho col-md-6">
 <?php
 	session_start();
 require "validador_acesso.php";
