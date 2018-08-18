@@ -20,6 +20,9 @@
 		<script type="text/javascript" src="biblioteca/bootstrap.bundle.min.js"></script>
 
 		<script type="text/javascript" src="script/script.js"></script>
+<?php
+session_start();
+?>
 	</head>
 <!-- Modal Login Inicio-->
 <div class="modal fade" id="login">
@@ -55,7 +58,10 @@
 		</div>	
 	</div>
 </div>
+
+
 		<body>
+
 <!-- Navegação-->
 				<div class="container">
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -96,7 +102,6 @@
 					</div>
 					<div class="cabecalho col-sm-4">
 <?php
-session_start();
 require "validador_acesso.php";
 
 ?>

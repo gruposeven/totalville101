@@ -4,17 +4,13 @@ Páginas e sistema ainda não publicado.
 
 Primeira fase - criação da pagina de cadastro e novo banco de dados.
 
-	- Cadastro com validação realizado e testado com banco de dados externo 
+	- Cadastro com validação realizado e testado com banco de dados externo
+	- Nova adaptação modal para validação de cadastro  
 
-Segunda fase - criação ambiente programador com cadastro de pessoa fisica / cadastro sindico / cadastro condominio / cadastro unidade com vaga de garagem 
+Segunda fase - Criação do sistema v1.0 
 
-Terceira fase - criação ambiente sindico com cadastro pessoa fisica / cadastro gerente / cadastro condominio / cadastro unidade com vaga de garagem / cadastro administradora / analise de condôminio 
-
-Quarta fase - criação ambiente gerencia 
-
-Quinta fase - criação cadastro de unidade e alteração de dados cadastrais 
-
-Quinta fase - criação ambiente administradora   
+	- Criado página principal do sistema com menu_sistema acoplado
+	- Menu_sistema adaptado de acordo com as autorizações do usuario_status
 
 $usuarios_status autorizados para Sistema = 
 

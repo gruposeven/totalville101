@@ -1,6 +1,6 @@
-
 <?php
 require "configuracoes.php";
+
 
 	if(isset($_SESSION['usuario']) && empty($_SESSION['usuario'])== false){
        $usuario_autentic= addslashes($_SESSION['usuario']);
@@ -49,22 +49,47 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 	$sql=$pdo->query($sql);
 
 		if ($sql->rowCount() > 0){
-			echo"<div class='alert alert-lg alert-warning alert dismissible show' role='alert' id='AlertaCadastro'>
-			CPF já cadastrado! <a href='esqueci.php' target='_blank'>Acesse Esqueci Senha</a>
-			<button class='close' data-dismiss='alert' aria-label='fechar'>
-			<span aria-hidden='true'>&times;</span>
-			</button> 
-			</div>";	
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> CPF já cadastrado - Clique em Esqueci a Senha ou Retorne
+				</div>
+			<div class='modal-footer modal-fluid justify-content-between'>
+				<button class='btn btn-danger btn-sm' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+				<a class='btn btn-info btn-sm' href='esqueci.php' data-dismiss='modal'>Esqueci a Senha</a>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
+
 		}else{
 				$sql="SELECT * FROM pessoafisica WHERE email_pf='$email_pf'";
 				$sql=$pdo->query($sql);
 			if ($sql->rowCount() > 0){
-			echo"<div class='alert alert-lg alert-warning alert dismissible show' role='alert' id='AlertaCadastro'>
-			E-mail já cadastrado! <a href='esqueci.php' target='_blank'>Acesse Esqueci Senha</a>
-			<button class='close' data-dismiss='alert' aria-label='fechar'>
-			<span aria-hidden='true'>&times;</span>
-			</button> 
-			</div>";	
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> E-mail já cadastrado - Clique em Esqueci a Senha ou retorne
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger btn-sm' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+				<a class='btn btn-info btn-sm' href='esqueci.php' data-dismiss='modal'>Esqueci a Senha</a>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 			}else{
 //Criação da Pasta Pessoa Fisica
 	$cpf = addslashes($_POST['dpcpf']);
@@ -228,12 +253,23 @@ Para alterar seu e-mail cadastrado faça seu login e retorne aos seus Dados Pess
 </div>';
 //Término Cornifrmação de Cadastro
  						}else{
-									echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-									Arquivo de Imagem não compatível!
-									<button class='close' data-dismiss='alert' aria-label='fechar'>
-									<span aria-hidden='true'>&times;</span>
-									</button> 
-									</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Imagem não compatível (JPG /PNG)
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
  						}
 						}else{
 										echo"<div class='alert alert-lg alert-warning alert dismissible show' role='alert' id='AlertaCadastro'>
@@ -252,175 +288,371 @@ Para alterar seu e-mail cadastrado faça seu login e retorne aos seus Dados Pess
 		}
 //Término da Inclusão de dados
 																			}else{
-																				echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-																				Data de nascimento não informado!
-																				<button class='close' data-dismiss='alert' aria-label='fechar'>
-																				<span aria-hidden='true'>&times;</span>
-																				</button> 
-																				</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Data de Nascimento não informado
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 																			}
 																		}else{
-																			echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-																			Telefone incorreto!
-																			<button class='close' data-dismiss='alert' aria-label='fechar'>
-																			<span aria-hidden='true'>&times;</span>
-																			</button> 
-																			</div>";	
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Número de telefone incorreto
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 																		}
 																	}else{
-																	echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-																	CEP incorreto!
-																	<button class='close' data-dismiss='alert' aria-label='fechar'>
-																	<span aria-hidden='true'>&times;</span>
-																	</button> 
-																	</div>";	
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> CEP de residência incorreto
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 																	}
 																}else{
-																	echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-																	CEP não informado!
-																	<button class='close' data-dismiss='alert' aria-label='fechar'>
-																	<span aria-hidden='true'>&times;</span>
-																	</button> 
-																	</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> CEP de residência não informado
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 																}	
 															}else{
-															echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-															Seu e-mail é inválido!
-															<button class='close' data-dismiss='alert' aria-label='fechar'>
-															<span aria-hidden='true'>&times;</span>
-															</button> 
-															</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> E-mail informado inválido
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 															}
 														}
 														else{
-															echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-															Informe seu CPF somente números!
-															<button class='close' data-dismiss='alert' aria-label='fechar'>
-															<span aria-hidden='true'>&times;</span>
-															</button> 
-															</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Informe seu CPF somente números
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 														}
 													}else{
-														echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-														CPF cadastrado incorreto!
-														<button class='close' data-dismiss='alert' aria-label='fechar'>
-														<span aria-hidden='true'>&times;</span>
-														</button> 
-														</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> CPF cadastrado incorreto
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 													}
 												}else{
-													echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert'>
-													Senha confirmada incorreta!
-													<button class='close' data-dismiss='alert' aria-label='fechar' id='AlertaCadastro'>
-													<span aria-hidden='true'>&times;</span>
-													</button> 
-													</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Confirmação de senha incorreta
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 												}	
 											}else{
-												echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-												Confirme sua senha!
-												<button class='close' data-dismiss='alert' aria-label='fechar'>
-												<span aria-hidden='true'>&times;</span>
-												</button> 
-												</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Confirme sua senha
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 											}
 										}else{
-											echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-											Senha não informada!
-											<button class='close' data-dismiss='alert' aria-label='fechar'>
-											<span aria-hidden='true'>&times;</span>
-											</button> 
-											</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Senha não informada
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 										}									
 									}else{
-										echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-										Estado não informado!
-										<button class='close' data-dismiss='alert' aria-label='fechar'>
-										<span aria-hidden='true'>&times;</span>
-										</button> 
-										</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Estado não informado
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 									}
 								}else{
-									echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-									Cidade não informada!
-									<button class='close' data-dismiss='alert' aria-label='fechar'>
-									<span aria-hidden='true'>&times;</span>
-									</button> 
-									</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Cidade não informada
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 								}
 							}else{
-								echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-								Bairro/Satélite não informado!
-								<button class='close' data-dismiss='alert' aria-label='fechar'>
-								<span aria-hidden='true'>&times;</span>
-								</button> 
-								</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Bairro/Satélite não informado
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 							}
 						}else{
-							echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-							Número não informado!
-							<button class='close' data-dismiss='alert' aria-label='fechar'>
-							<span aria-hidden='true'>&times;</span>
-							</button> 
-							</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Numero de residencia não informado
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 						}
 					}else{
-						echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-						Rua não informado!
-						<button class='close' data-dismiss='alert' aria-label='fechar'>
-						<span aria-hidden='true'>&times;</span>
-						</button> 
-						</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Rua/Setor/Quadra não informado
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 					}
 				}else{
-					echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-					Telefone não informado!
-					<button class='close' data-dismiss='alert' aria-label='fechar'>
-					<span aria-hidden='true'>&times;</span>
-					</button> 
-					</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> Telefone não informado
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 				}
 			}else{
-				echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-				E-mail não informado!
-				<button class='close' data-dismiss='alert' aria-label='fechar'>
-				<span aria-hidden='true'>&times;</span>
-				</button> 
-				</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> E-mail não informado
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 			}
 		}else{
-			echo"<div class='alert alert-lg alert-danger alert dismissible show' role='alert' id='AlertaCadastro'>
-			RG não informado!
-			<button class='close' data-dismiss='alert' aria-label='fechar'>
-			<span aria-hidden='true'>&times;</span>
-			</button> 
-			</div>";
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> RG não informado
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<script>$('#erro').modal('show')</script>";
 		}
 	}else{
-		echo '
-<div class="container-fluid">
-<div class="modal fade show" id="erro">
-<div class="modal-dialog modal-dialog-centered modal-md"> 
-<div class="modal-content">
-<div class="modal-header modal-header-sm">
-<h3 class="modal-titulo">Erro no cadastro!!!</h3>
-<button class="close" data-dismiss="modal">
-<span>&times;</span>
-</button>
+
+echo"
+<div class='container-fluid'>
+	<div class='modal fade' id='erro'>
+		<div class='modal-dialog modal-dialog-centered modal-sm'> 
+			<div class='modal-content'>
+				<div class='modal-body'>
+<b>Erro:</b> CPF não informado
+				</div>
+			<div class='modal-footer justify-content-between'>
+				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+					Retornar ao Cadastro
+				</button>
+			</div>
+		</div>	
+	</div>
 </div>
-<div class="modal-body">
-CPF não informado
-</div>
-<div class="modal-footer justify-content-between">
-<button class="btn btn-danger" data-dismiss="modal" onsubmit="">Fechar</button>
-</div>
-</div>	
-</div>
-</div>
-		<script>$("#erro").modal("show")</script>
-		<script>history.go(-1)</script>';
+<script>$('#erro').modal('show')</script>";
+
 	}
 }else{
 
 }
 
+?>
