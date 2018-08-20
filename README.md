@@ -15,7 +15,9 @@ Segunda fase - Criação do sistema v1.0
 
 Cadastro Pessoa Fisica 
 Editar Pessoa Fisica 
+Consultar Pessoa Fisica
 Imprimir Pessoa Fisica 
+
 
 $usuarios_status autorizados para Sistema = 
 
