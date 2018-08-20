@@ -8,12 +8,14 @@ Primeira fase - criação da pagina de cadastro e novo banco de dados.
 	- Nova adaptação modal para validação de cadastro
 	  
 
-		** verificar cadastro sem foto não abre modal de confirmação 
-
 Segunda fase - Criação do sistema v1.0 
 
 	- Criado página principal do sistema com menu_sistema acoplado
 	- Menu_sistema adaptado de acordo com as autorizações do usuario_status
+
+Cadastro Pessoa Fisica 
+Editar Pessoa Fisica 
+Imprimir Pessoa Fisica 
 
 $usuarios_status autorizados para Sistema = 
 

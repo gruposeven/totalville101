@@ -279,6 +279,29 @@ echo"
 										</button> 
 										</div>";
 
+echo '<div class="container-fluid">
+<div class="modal fade show" id="confirmacao">
+<div class="modal-dialog modal-dialog-centered modal-md"> 
+<div class="modal-content">
+<div class="modal-header modal-header-sm">
+<h5 class="modal-titulo">Cadastro Realizado!!!</h5>
+<button class="close" data-dismiss="modal">
+<span>&times;</span>
+</button>
+</div>
+<div class="modal-body">
+Foi encaminhado para '.$email_pf.' o link de confirmação.<br><br> 
+Para alterar seu e-mail cadastrado faça seu login e retorne aos seus Dados Pessoais<br><br>
+</div>
+<div class="modal-footer justify-content-between">
+<button class="btn btn-primary" data-toggle="modal" data-target="#login" data-dismiss="modal">Login</button>
+<button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+</div>
+</div>	
+</div>
+</div>
+</div>';
+
 if($validacao == "Falta validar"){ ?><script>$(document).ready(function(){
 $('#confirmacao').modal('show');});</script>
 <?php }
