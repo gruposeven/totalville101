@@ -278,12 +278,17 @@ echo"
 										<span aria-hidden='true'>&times;</span>
 										</button> 
 										</div>";
+
+if($validacao == "Falta validar"){ ?><script>$(document).ready(function(){
+$('#confirmacao').modal('show');});</script>
+<?php }
+
 						}
 					}
 //Inserindo Modal de Validação
-				if($validacao == "Falta validar"){ ?><script>$(document).ready(function(){
-							$('#confirmacao').modal('show');});</script>
-			<?php }
+if($validacao == "Falta validar"){ ?><script>$(document).ready(function(){
+$('#confirmacao').modal('show');});</script>
+<?php }
 			}
 		}
 //Término da Inclusão de dados
