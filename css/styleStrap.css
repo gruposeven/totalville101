@@ -38,7 +38,25 @@ nav #titulo{
 }
 /*Corpo Sistema*/
 #corpo1{
-font-size: 12px;
+	font-size: 12px;
 }
 #corpo2{
+}
+#corpo2A{
+	margin-bottom: 10px;
+	text-align: center;
+}
+#form_validar_cpf{
+	justify-content: center;
+}
+#corpo2B{
+}
+#corpo2A button{
+	width: 80px;
+	margin-bottom: 5px;
+}
+#corpo2B .alert{
+	font-size: 12px;
+	text-align: justify;
+} 
 }
