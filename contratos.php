@@ -113,6 +113,19 @@
 								</div>	
 							</div></a>	
 
+							<a href="documentos/aditivo_hidrus.pdf" target="_blank"><div class="Articleopcoes">
+								<div class="projeto_titulo">Contrato - Medição de Água
+								</div>
+								<div class="projeto_linha">
+								</div>
+								<div class="projeto_imagem">
+									<img src="imagens/grafica.jpg">
+								</div>
+								<div class="projeto_texto">
+									 Aditivo de contrato - 07 de Fevereiro de 2018
+								</div>	
+							</div></a>	
+
 						</div>
 					</section>
 <!--Rodapé-->
