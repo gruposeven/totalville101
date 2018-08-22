@@ -76,7 +76,7 @@ require "menu_sistema.php";
 					</div>
 				<div class="col-8" id="corpo2">
 					<div class="row">
-						<div class="col-sm-9" id="corpo2A">
+						<div class="col-lg-9" id="corpo2A">
 							<div id="accordion">
 <?php
 $cpf="Informe o CPF";
@@ -87,6 +87,8 @@ require "validador_cadastro_pf.php";
 ?>
 								<div class="card">
 									<div class="card-header justify-content-between">
+									<img id="fotoCPF" class="img-fluid float-right img-thumbnail" 
+									src="../pessoafisica/<?php echo $cpf;?>/<?php echo $foto_pf;?>">
 										<form id="form_validar_cpf" method="POST" 
 										enctype="multipart/form-data" 
 										class="form-inline">
@@ -97,7 +99,7 @@ require "validador_cadastro_pf.php";
 										</form>
 										<button id="botao_cadastrar"value="Cadastrar" class="btn
 										btn-sm" data-toggle="collapse" aria-controls="card_cadastrar" 
-										data-target="#card_cadastrar" disabled>Cadastrar</button>
+										data-target="#card_cadastrar" disabled onclick=" return aciona_cadastro()">Cadastrar</button>
 										<button id="botao_editar" value="Editar" class="btn
 										btn-sm" data-toggle="collapse" aria-controls="card_editar" 
 										data-target="#card_editar" disabled>Editar</button>
@@ -107,14 +109,14 @@ require "validador_cadastro_pf.php";
 										<button id="botao_deletar" value="Deletar" class="btn
 										btn-sm" data-toggle="collapse" aria-controls="card_editar"
 										data-target="#card_deletar" disabled>Deletar</button>
-
 									</form>
 									</div>
 								</div>
 <!-- Cadastrar-->
 								<div id="card_cadastrar" class="collapse" data-parent="#accordion">
 									<div class="card-body">
-										<form method="POST" enctype="multipart/form-data" class="form justify-content-between">
+										<form method="POST" enctype="multipart/form-data" onsubmit="check_form()"
+										class="form justify-content-between">
 											<div class="row">
 												<div class="col-sm-6">
 													<div class="form-group">
@@ -238,7 +240,7 @@ require "validador_cadastro_pf.php";
 														placeholder="<?php echo $telefone_pf;?>">
 													</div>
 													<div class="form-group">
-														<label for="dpimagem_pf">Inserir Foto:</label><br>
+														<label for="dpimagem_pf">Substituir Foto:</label><br>
 															<label class="btn btn-sm btn-primary">
 															Arquivo JPG/PNG 
 															<input class="btn btn-sm btn-primary form-control form-control-sm" type="file" 
@@ -334,7 +336,7 @@ require "validador_cadastro_pf.php";
 
 							</div>
 						</div>
-						<div class="col-sm-3" id="corpo2B">
+						<div class="col-lg-3" id="corpo2B">
 							<div id ="alert_validacao"class="alert alert-sm alert-primary fade" 
 							role="alert">
 								<h6 class="alert-heading">Validação do CPF</h6>

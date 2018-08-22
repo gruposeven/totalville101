@@ -18,6 +18,11 @@ input{
 #AlertaCadastro{
 	font-size: 12px;
 }
+#fotoCPF{
+	display:none;
+	max-width: 80px;
+}
+
 @media only screen and (min-width: 375px) and (max-width: 425px){
 .navbar-toggler{
 	margin-bottom: 10px;
@@ -25,6 +30,9 @@ input{
 
 }
 @media only screen and (max-width: 375px){
+#validar_cpf{
+	display: none;
+} 
 nav #titulo{
 	font-size: 12px;
 }
@@ -58,5 +66,5 @@ nav #titulo{
 #corpo2B .alert{
 	font-size: 12px;
 	text-align: justify;
-} 
+}
 }

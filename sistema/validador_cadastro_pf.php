@@ -1,6 +1,8 @@
 <?php
 require "../configuracoes.php";
 
+$foto_pf="";
+
 if(isset($_POST['validar_cpf']) && ($_POST['validar_cpf'] != "")){
 	$cpf=addslashes($_POST['validar_cpf']);
 	if(strlen ($cpf)==11){
@@ -30,13 +32,11 @@ if(isset($_POST['validar_cpf']) && ($_POST['validar_cpf'] != "")){
 			list($ano, $mes, $dia) = explode('-', $nasc_pf);
 			$nasc_pf2 = mktime(0,0,0, $mes, $dia, $ano);
 			$nasc_pf3 = date("d/m/Y", $nasc_pf2);
-		
+			$foto_pf = $dados_pf['foto_pf'];		
 
-
-
-
-
-
+?><script>$(document).ready(function(){
+document.getElementById('fotoCPF').style.display = 'block';});</script>
+<?php 	
 			?><script>$(document).ready(function(){
 			document.getElementById('alert_validacao').style.display = 'none';});</script>
 			<?php 	
@@ -61,11 +61,6 @@ if(isset($_POST['validar_cpf']) && ($_POST['validar_cpf'] != "")){
 			$('#botao_imprimir').addClass('btn-dark');
 			$('#botao_imprimir').removeAttr('disabled');});</script>
 			<?php 
-
-
-
-
-		
 			}else{
 				?><script>$(document).ready(function(){
 				document.getElementById('alert_validacao').style.display = 'none';});</script>
@@ -133,6 +128,5 @@ echo"oi";
 }else{
 
 }
-
-
+//Cadastro novo usuário
 

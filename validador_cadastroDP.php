@@ -223,7 +223,15 @@ mail($email_pf, $assuntovalida, $mensagemvalida, $cabecalho, "-r". $emailsender)
 									$image_new = imagecreatetruecolor($width, $height);
 									$image_original = imagecreatefromjpeg($imagem_pf);
 									imagecopyresampled($image_new, $image_original, 0, 0, 0, 0, $width, $height, $width_original, $height_original);
-									imagejpeg($image_new, 'pessoafisica/'.$cpf.'/mini_imagem-'.$cpf.'.jpg', 100);					
+									imagejpeg($image_new, 'pessoafisica/'.$cpf.'/mini_imagem-'.$cpf.'.jpg', 100);
+									$foto_pf='/mini_imagem-'.$cpf.'.jpg';
+
+	            $sql="UPDATE pessoafisica SET foto_pf='$foto_pf' WHERE cpf='$cpf'";
+
+                $sql=$pdo->query($sql);
+
+
+
 									//Término Criar Imagem MIni
 
 							}
