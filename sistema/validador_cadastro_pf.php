@@ -34,10 +34,12 @@ if(isset($_POST['validar_cpf']) && ($_POST['validar_cpf'] != "")){
 			$nasc_pf2 = mktime(0,0,0, $mes, $dia, $ano);
 			$nasc_pf3 = date("d/m/Y", $nasc_pf2);
 			$foto_pf = $dados_pf['foto_pf'];		
-
+//Verificação de Imagem cadastrada
+if(isset($foto_pf) && ($foto_pf != "")){
 ?><script>$(document).ready(function(){
 document.getElementById('fotoCPF').style.display = 'block';});</script>
-<?php 	
+<?php
+} 	
 			?><script>$(document).ready(function(){
 			document.getElementById('alert_validacao').style.display = 'none';});</script>
 			<?php 	
@@ -155,6 +157,7 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 	$senha = md5($cpf);
 	$nasc_pf = addslashes($_POST['dpnasc_pf']);
 	$validacao = "Falta validar";
+	$cod_valida = rand(100, 999);
 
 	            $sql="INSERT INTO pessoafisica SET nome_pf='$nome_pf', rg_pf='$rg_pf', 
 	            telefone_pf='$telefone_pf', endereco_rua_pf='$endereco_rua_pf', 
@@ -164,7 +167,7 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 	            endereco_estado_pf='$endereco_estado_pf', endereco_cep_pf='$endereco_cep_pf', cpf='$cpf'";
                 $sql=$pdo->query($sql);
 
-                $sql="INSERT INTO usuarios SET usuario='$cpf', senha='$senha', usuario_status='$validacao', 
+                $sql="INSERT INTO usuarios SET usuario='$cpf', cod_valida='$cod_valida', senha='$senha', usuario_status='$validacao', 
                 data_criacao='$data_criacao'";
                 $sql=$pdo->query($sql); 
 
@@ -381,7 +384,7 @@ if(isset($_POST['dpemail_pf']) && ($_POST['dpemail_pf'] != "")){
 	$assuntoconfirma = "Cadastro Realizado";
 	$corpo = "<p>Nome: ".$nome_pf."</p><p>E-mail: ".$email_pf."</p><p>CPF:".$cpf."</p><p>Criado em: ".$data_criacao."</p><p>Status: ".$validacao;
 	$cabecalho = "MIME-Version: 1.1".$quebra_linha;
-	$cabecalho .= "Content-type: text/html; charset=iso-8859-1".$quebra_linha;
+	$cabecalho .= "Content-type: text/html; charset=UTF-8".$quebra_linha;
 	$cabecalho .= "From: ".$emailsender.$quebra_linha;
 	$cabecalho .= "Return-Path: ".$emailsender.$quebra_linha;
 	$cabecalho .=  "Reply-To: ".$email_pf.$quebra_linha;
@@ -389,18 +392,16 @@ if(isset($_POST['dpemail_pf']) && ($_POST['dpemail_pf'] != "")){
 
 	mail($emaildestinatario, $assuntoconfirma, $corpo, $cabecalho, "-r". $emailsender);
 // Mandando e-mail de validação 
-$id_pf = $pdo->lastInsertId();
-$md5_id = md5($id_pf);
-$link = 'http://www.totalville101.com.br/valida_email.php?valida='.$md5_id;
 $assuntovalida = "Total Ville 101 - Valide de Cadastro";
 $mensagemvalida = "<h3>Prezado(a) ".$nome_pf."</h3>
 <p>O seu cadastro em nosso sistema foi realizado com sucesso pelo Administrador</p>
 <p>Usuário: ".$cpf."</p>
 <p>Senha Temporária: ".$cpf."</p>
-<p>Para alterar a sua senha acesse a página CADASTRO, faça o seu login e clique em Dados Pessoais</p>
+<p>Código de Validação: ".$cod_valida."</p>
+<p>Faça seu login em nosso site e logo em seguida informe o código de validação para concluir seu cadastro</p>
+<p>Para alterar a sua senha temporária acesse a página CADASTRO, faça o seu login e altere em Dados Pessoais</p>
 <p>Não deixe de atualizar o seu cadastro completando seus dados pessoais</p>
-<p>Clique no link abaixo para confirmar seu cadastro em nosso sistema:</p>
-<p>Clique: ".$link;
+<p>Administração";
 
 mail($email_pf, $assuntovalida, $mensagemvalida, $cabecalho, "-r". $emailsender);
 

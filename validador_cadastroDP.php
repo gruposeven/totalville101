@@ -78,13 +78,12 @@ echo"
 		<div class='modal-dialog modal-dialog-centered modal-sm'> 
 			<div class='modal-content'>
 				<div class='modal-body'>
-<b>Erro:</b> E-mail já cadastrado - Clique em Esqueci a Senha ou retorne
+<b>Erro:</b> E-mail já cadastrado <br> Retone e informe outro e-mail
 				</div>
 			<div class='modal-footer justify-content-between'>
 				<button class='btn btn-danger btn-sm' data-dismiss='modal' onclick='history.go(-1)''>
 					Retornar ao Cadastro
 				</button>
-				<a class='btn btn-info btn-sm' href='esqueci.php' data-dismiss='modal'>Esqueci a Senha</a>
 			</div>
 		</div>	
 	</div>
@@ -112,6 +111,7 @@ echo"
 	$senha = md5(addslashes($_POST['dpsenha']));
 	$nasc_pf = addslashes($_POST['dpnasc_pf']);
 	$validacao = "Falta validar";
+	$cod_valida = rand(100, 999);
 
 	            $sql="INSERT INTO pessoafisica SET nome_pf='$nome_pf', rg_pf='$rg_pf', 
 	            email_pf='$email_pf', telefone_pf='$telefone_pf', endereco_rua_pf='$endereco_rua_pf', 
@@ -121,8 +121,8 @@ echo"
 	            endereco_estado_pf='$endereco_estado_pf', endereco_cep_pf='$endereco_cep_pf', cpf='$cpf'";
                 $sql=$pdo->query($sql);
 
-                $sql="INSERT INTO usuarios SET usuario='$cpf', usuario_status='$validacao', senha='$senha', 
-                data_criacao='$data_criacao'";
+                $sql="INSERT INTO usuarios SET usuario='$cpf', usuario_status='$validacao', cod_valida='$cod_valida', 
+                senha='$senha', data_criacao='$data_criacao'";
                 $sql=$pdo->query($sql); 
 
 			echo"<div class='alert alert-lg alert-success alert dismissible show' role='alert' id='AlertaCadastro'>
@@ -144,7 +144,7 @@ echo"
 	$assuntoconfirma = "Cadastro Realizado";
 	$corpo = "<p>Nome: ".$nome_pf."</p><p>E-mail: ".$email_pf."</p><p>CPF:".$cpf."</p><p>Criado em: ".$data_criacao."</p><p>Status: ".$validacao;
 	$cabecalho = "MIME-Version: 1.1".$quebra_linha;
-	$cabecalho .= "Content-type: text/html; charset=iso-8859-1".$quebra_linha;
+	$cabecalho .= "Content-type: text/html; charset=UTF-8".$quebra_linha;
 	$cabecalho .= "From: ".$emailsender.$quebra_linha;
 	$cabecalho .= "Return-Path: ".$emailsender.$quebra_linha;
 	$cabecalho .=  "Reply-To: ".$email_pf.$quebra_linha;
@@ -152,11 +152,16 @@ echo"
 
 	mail($emaildestinatario, $assuntoconfirma, $corpo, $cabecalho, "-r". $emailsender);
 // Mandando e-mail de validação 
-$id_pf = $pdo->lastInsertId();
-$md5_id = md5($id_pf);
-$link = 'http://www.totalville101.com.br/valida_email.php?valida='.$md5_id;
 $assuntovalida = "Total Ville 101 - Valide de Cadastro";
-$mensagemvalida = "<h3>Prezado(a) ".$nome_pf."</h3><p>Clique no link abaixo para confirmar seu cadastro em nosso sistema:</p><p>Clique: ".$link;
+$mensagemvalida = "<h3>Prezado(a) ".$nome_pf."</h3>
+<p>O seu cadastro em nosso sistema foi realizado com sucesso pelo Administrador</p>
+<p>Usuário: ".$cpf."</p>
+<p>Senha Temporária: ".$cpf."</p>
+<p>Código de Validação: ".$cod_valida."</p>
+<p>Faça seu login em nosso site e logo em seguida informe o código de validação para concluir seu cadastro</p>
+<p>Para alterar a sua senha temporária acesse a página CADASTRO, faça o seu login e altere em Dados Pessoais</p>
+<p>Não deixe de atualizar o seu cadastro completando seus dados pessoais</p>
+<p>Administração";
 
 mail($email_pf, $assuntovalida, $mensagemvalida, $cabecalho, "-r". $emailsender);
 
@@ -248,7 +253,7 @@ echo '<div class="container-fluid">
 </button>
 </div>
 <div class="modal-body">
-Foi encaminhado para '.$email_pf.' o link de confirmação.<br><br> 
+Foi encaminhado para '.$email_pf.' o código de validação.<br><br> 
 Para alterar seu e-mail cadastrado faça seu login e retorne aos seus Dados Pessoais<br><br>
 </div>
 <div class="modal-footer justify-content-between">
@@ -298,7 +303,7 @@ echo '<div class="container-fluid">
 </button>
 </div>
 <div class="modal-body">
-Foi encaminhado para '.$email_pf.' o link de confirmação.<br><br> 
+Foi encaminhado para '.$email_pf.' o código de validação.<br><br> 
 Para alterar seu e-mail cadastrado faça seu login e retorne aos seus Dados Pessoais<br><br>
 </div>
 <div class="modal-footer justify-content-between">

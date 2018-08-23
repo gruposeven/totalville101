@@ -9,10 +9,113 @@ require "configuracoes.php";
         $dados = $sql->fetch();
         $cpf_autentic=$dados['cpf'];
         $nome_pf_autentic=$dados['nome_pf'];
+        $email_autentic=$dados['email_pf'];
+
 
 	        echo''.$nome_pf_autentic.' ';
 	        echo'<a class= "btn btn-outline-primary btn-sm" href="../logout_servidor.php">Sair
 	        </a>';
+
+        $sql="SELECT * FROM usuarios WHERE usuario='$cpf_autentic'";
+        $sql= $pdo->query($sql);
+        $dados_usuario = $sql->fetch();
+        $usuario_status = $dados_usuario['usuario_status'];
+        $cod_valida = $dados_usuario['cod_valida'];
+
+		if($usuario_status == "Falta validar"){
+	        $email_autentic=$dados['email_pf'];
+	        $cpf_autentic=$dados['cpf'];
+	        $nome_pf_autentic=$dados['nome_pf'];
+            $cod_valida = $dados_usuario['cod_valida'];
+
+			if(isset($_POST['codigo_validacao']) && empty($_POST['codigo_validacao'])== false){
+	        $email_autentic=$dados['email_pf'];
+	        $cpf_autentic=$dados['cpf'];
+	        $nome_pf_autentic=$dados['nome_pf'];
+            $cod_valida = $dados_usuario['cod_valida'];
+			$codigo_validacao = addslashes($_POST['codigo_validacao']);
+
+				if($codigo_validacao == $cod_valida){
+		        $email_autentic=$dados['email_pf'];
+				$usuario_status_novo = "Validado";
+		        $cpf_autentic=$dados['cpf'];
+
+	            $sql="UPDATE usuarios SET usuario_status='$usuario_status_novo' WHERE usuario='$cpf_autentic'";
+                $sql=$pdo->query($sql);
+
+//Enviando E-mail para o Administrador
+				$emailsender = "suporte@totalville101.com.br";
+
+				/* Verifica qual é o sistema operacional do servidor para ajustar o cabeçalho de forma correta. */
+				
+				if(PHP_OS == "Linux") $quebra_linha = "\n"; //Se for Linux
+				elseif(PHP_OS == "WINNT") $quebra_linha = "\r\n"; // Se for Windows
+				else die("Este script nao esta preparado para funcionar com o sistema operacional de seu servidor");
+
+
+				$emaildestinatario = "administracao@totalville101.com.br";
+				$assuntoconfirma = "Cadastro Validado";
+				$corpo = "<p>E-mail: ".$email_autentic."</p><p>CPF:".$cpf_autentic."</p><p>Status: ".$usuario_status_novo;
+
+				$cabecalho = "MIME-Version: 1.1".$quebra_linha;
+				$cabecalho .= "Content-type: text/html; charset=UTF-8".$quebra_linha;
+				$cabecalho .= "From: ".$emailsender.$quebra_linha;
+				$cabecalho .= "Return-Path: ".$emailsender.$quebra_linha;
+				$cabecalho .=  "Reply-To: ".$email_autentic.$quebra_linha;
+				$cabecalho .=  "X-Mailer: PHP/".phpversion();
+
+				mail($emaildestinatario, $assuntoconfirma, $corpo, $cabecalho, "-r". $emailsender);
+
+				header("Refresh:0");
+
+				}else{
+           		echo "<br>Código de Validação incorreto";
+				}
+			}
+			echo
+			'<div class="modal fade" id="faltaValidar">
+				<div class="modal-dialog modal-dialog-centered modal-sm"> 
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-titulo">Validação de Cadastro</h5>
+							<button class="close" data-dismiss="modal">
+								<span>&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>O seu cadastro ainda não foi validado</p>
+							<p>Foi encaminhado para <b>'.$email_autentic.'</b> o seu código de validação, informe no campo abaixo.</p>
+							<form method="POST" class="justify-content-around">
+								<div class="form-group">
+									<label for="codigoValida">Código de Validação:</label>
+									<input id="codigoValida" type="password" name="codigo_validacao" class="form-control 
+									form-control-sm text-align-center"> 	
+								</div>
+								<div class="form-group"><center>
+									<input type="submit" value="Validar" class="btn btn-primary"></center>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer justify-content-between">
+							<a href="cadastro.php"class="btn btn-success"target="_blank">Altere E-mail</a>
+							<button class="btn btn-danger" data-dismiss="modal">
+							Validar Depois
+							</button>
+						</div>
+					</div>	
+				</div>
+			</div>
+			<script>$("#faltaValidar").modal("show")</script>';
+		
+		}else{
+		
+		}
+        
+
+
+
+
+
 
     }else{
         echo'Usuário não autenticado ';
