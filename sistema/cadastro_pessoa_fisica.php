@@ -18,7 +18,7 @@
 
 		<script type="text/javascript" src="../biblioteca/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="../biblioteca/bootstrap.bundle.min.js"></script>
-		<script type="text/javascript" src="script/script.js"></script>
+		<script type="text/javascript" src="../script/script.js"></script>
 
 <?php
 				session_start();
@@ -78,28 +78,26 @@ require "menu_sistema.php";
 					<div class="row">
 						<div class="col-lg-9" id="corpo2A">
 							<div id="accordion">
-<?php
-$cpf="Informe o CPF";
-?>
 
 <?php
+$validadoCPF="Informe o CPF";
 require "validador_cadastro_pf.php";
 ?>
 								<div class="card">
 									<div class="card-header justify-content-between">
 									<img id="fotoCPF" class="img-fluid float-right img-thumbnail" 
-									src="../pessoafisica/<?php echo $cpf;?>/<?php echo $foto_pf;?>">
+									src="../pessoafisica/<?php echo $validadoCPF;?>/<?php echo $foto_pf;?>">
 										<form id="form_validar_cpf" method="POST" 
 										enctype="multipart/form-data" 
 										class="form-inline">
 										<input id="validar_cpf" type="number" name="validar_cpf" class="form-control form-control-sm" 
-										placeholder="<?php echo $cpf;?>" disabled>								
+										placeholder="<?php echo $validadoCPF;?>" disabled>								
 										<input id="botao_verificar" type="submit" class="btn
 										btn-sm" value="Verificar"disabled>
 										</form>
 										<button id="botao_cadastrar"value="Cadastrar" class="btn
 										btn-sm" data-toggle="collapse" aria-controls="card_cadastrar" 
-										data-target="#card_cadastrar" disabled onclick=" return aciona_cadastro()">Cadastrar</button>
+										data-target="#card_cadastrar" disabled onclick="acionaCadastro()">Cadastrar</button>
 										<button id="botao_editar" value="Editar" class="btn
 										btn-sm" data-toggle="collapse" aria-controls="card_editar" 
 										data-target="#card_editar" disabled>Editar</button>
@@ -115,22 +113,22 @@ require "validador_cadastro_pf.php";
 <!-- Cadastrar-->
 								<div id="card_cadastrar" class="collapse" data-parent="#accordion">
 									<div class="card-body">
-										<form method="POST" enctype="multipart/form-data" onsubmit="check_form()"
+										<form method="POST" enctype="multipart/form-data" onsubmit="return checkForm()"
 										class="form justify-content-between">
 											<div class="row">
 												<div class="col-sm-6">
 													<div class="form-group">
-														<label for="dpnome_pf">Nome Completo:</label>
+														<label for="dpnome_pf"><b>(*)</b>Nome Completo:</label>
 														<input id="dpnome_pf" type="text" name="dpnome_pf" class="form-control 
 														form-control-sm"> 
 													</div>	
 													<div class="form-group">
-														<label for="dpcpf">CPF:</label>
+														<label for="dpcpf"><b>(*)</b>CPF:</label>
 														<input id="dpcpf" type="number" name="dpcpf" class="form-control 
-														form-control-sm" placeholder="<?php echo $cpf;?>" readonly>
+														form-control-sm" value="<?php echo $validadoCPF;?>" readonly>
 													</div>
 													<div class="form-group">
-														<label for="dprg_PF">RG:</label>
+														<label for="dprg_PF"><b>(*)</b>RG:</label>
 														<input id="dprg_pf" type="text" name="dprg_pf" class="form-control 
 														form-control-sm">
 													</div>
@@ -345,20 +343,27 @@ require "validador_cadastro_pf.php";
 							<div id ="alert_cpf_cadastrado"class="alert alert-sm alert-warning fade" 
 							role="alert">
 								<h6 class="alert-heading">CPF já cadastrado</h6>
-								<small>(<?php echo $cpf;?>)</small>								
+								<small>(<?php echo $validadoCPF;?>)</small>								
 								<div class="alert alert-body"><p>O CPF informado já se encontra cadastrado em nosso sistema. Você poderá Editar os dados pessoais ou Deletar o cadastro</p></div>
 							</div> 
 							<div id ="alert_cpf_incorreto"class="alert alert-sm alert-danger fade" 
 							role="alert">
 								<h6 class="alert-heading">CPF incorreto</h6>
-								<small>(<?php echo $cpf;?>)</small>								
+								<small>(<?php echo $validadoCPF;?>)</small>								
 								<div class="alert alert-body"><p>O CPF deve conter 11 números. Não informe caracteres especiais</p></div>
 							</div>
 							<div id ="alert_cpf_nao_cadastrado"class="alert alert-sm alert-success fade" 
 							role="alert">
 								<h6 class="alert-heading">CPF Não Cadastrado</h6>
-								<small>(<?php echo $cpf;?>)</small>								
+								<small>(<?php echo $validadoCPF;?>)</small>								
 								<div class="alert alert-body"><p>O CPF informado não consta em nosso Banco de Dados. Você cadastrar os dados pessoais deste CPF</p></div>
+							</div>
+							<div id ="verificador_cadastro_pf"class="alert alert-sm alert-primary fade" 
+							role="alert">
+								<h6 class="alert-heading">Inicio do cadastro</h6>
+								<small>(<?php echo $validadoCPF;?>)</small>								
+								<div class="alert alert-body"><p>Os itens com (*) são obrigatórios</p>
+									<p>Os demais itens poderão ser preenchidos pelo usuário</p></div>
 							</div>
 
 						</div>
