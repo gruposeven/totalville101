@@ -83,6 +83,7 @@ require "menu_sistema.php";
 $validadoCPF="Informe o CPF";
 require "validador_cadastro_pf.php";
 ?>
+
 								<div class="card">
 									<div class="card-header justify-content-between">
 									<img id="fotoCPF" class="img-fluid float-right img-thumbnail" 
@@ -100,7 +101,7 @@ require "validador_cadastro_pf.php";
 										data-target="#card_cadastrar" disabled onclick="acionaCadastro()">Cadastrar</button>
 										<button id="botao_editar" value="Editar" class="btn
 										btn-sm" data-toggle="collapse" aria-controls="card_editar" 
-										data-target="#card_editar" disabled>Editar</button>
+										data-target="#card_editar" disabled onclick="acionaEdit()">Editar</button>
 										<button id="botao_imprimir" value="Imprimir" class="btn
 										btn-sm" data-toggle="collapse" aria-controls="card_imprimir" 
 										data-target="#card_imprimir" disabled>Imprimir</button>
@@ -113,7 +114,7 @@ require "validador_cadastro_pf.php";
 <!-- Cadastrar-->
 								<div id="card_cadastrar" class="collapse" data-parent="#accordion">
 									<div class="card-body">
-										<form method="POST" enctype="multipart/form-data" onsubmit="return checkForm()"
+										<form method="POST" enctype="multipart/form-data" onsubmit="return checkCadastro()"
 										class="form justify-content-between">
 											<div class="row">
 												<div class="col-sm-6">
@@ -205,84 +206,85 @@ require "validador_cadastro_pf.php";
 <!-- Editar-->
 								<div id="card_editar" class="collapse" data-parent="#accordion">
 									<div class="card-body">
-										<form method="POST" enctype="multipart/form-data" class="form justify-content-between">
+										<form method="POST" enctype="multipart/form-data" onsubmit="return checkEdit()" 
+										class="form justify-content-between">
 											<div class="row">
 												<div class="col-sm-6">
 													<div class="form-group">
-														<label for="dpnome_pf">Nome Completo:</label>
-														<input id="dpnome_pf" type="text" name="dpnome_pf" class="form-control form-control-sm" placeholder="<?php echo $nome_pf;?>"> 
+														<label for="editnome_pf"><b>(*)</b>Nome Completo:</label>
+														<input id="editnome_pf" type="text" name="editnome_pf" 
+														class="form-control form-control-sm" value="<?php echo $nome_pf;?>"> 
 													</div>	
 													<div class="form-group">
-														<label for="dpcpf">CPF:</label>
-														<input id="dpcpf" type="number" name="dpcpf" class="form-control 
-														form-control-sm" placeholder="<?php echo $cpf;?>" readonly>
+														<label for="editcpf"><b>(*)</b>CPF:</label>
+														<input id="editcpf" type="number" name="editcpf" class="form-control 
+														form-control-sm" value="<?php echo $cpf;?>" readonly>
 													</div>
 													<div class="form-group">
-														<label for="dprg_PF">RG:</label>
-														<input id="dprg_pf" type="text" name="dprg_pf" class="form-control form-control-sm" placeholder="<?php echo $rg_pf;?>">
+														<label for="editrg_PF"><b>(*)</b>RG:</label>
+														<input id="editrg_pf" type="text" name="editrg_pf" class="form-control form-control-sm" value="<?php echo $rg_pf;?>">
 													</div>
 													<div class="form-group">
-														<label for="dpnasc_PF">Data de Nascimento:</label>
-														<input id="dpnasc_pf" type="text" name="dpnasc_pf" class="form-control form-control-sm" 
-														placeholder="<?php echo $nasc_pf3;?>" readonly>
+														<label for="editnasc_PF">Data de Nascimento:</label>
+														<input id="editnasc_pf" type="text" name="editnasc_pf" class="form-control form-control-sm" 
+														value="<?php echo $nasc_pf3;?>" readonly>
 													</div>
 													<div class="form-group">
-														<label for="dpemail_pf">E-mail:</label>
-														<input id="dpemail_pf" type="email" name="dpemail_pf" class="form-control form-control-sm" 
-														placeholder="<?php echo $email_pf;?>">
+														<label for="editemail_pf">E-mail:</label>
+														<input id="editemail_pf" type="email" name="editemail_pf" class="form-control form-control-sm" 
+														value="<?php echo $email_pf;?>">
 													</div>
 													<div class="form-group">
-														<label for="dpetelefone_pf">Telefone:</label>
-														<input id="dptelefone_pf" type="tel" name="dptelefone_pf" 
+														<label for="editetelefone_pf">Telefone:</label>
+														<input id="edittelefone_pf" type="tel" name="edittelefone_pf" 
 														class="form-control	form-control-sm" 
-														placeholder="<?php echo $telefone_pf;?>">
+														value="<?php echo $telefone_pf;?>">
 													</div>
 													<div class="form-group">
-														<label for="dpimagem_pf">Substituir Foto:</label><br>
+														<label for="editimagem_pf">Substituir Foto:</label><br>
 															<label class="btn btn-sm btn-primary">
 															Arquivo JPG/PNG 
 															<input class="btn btn-sm btn-primary form-control form-control-sm" type="file" 
-															id="dpimagem_pf" name="dpimagem_pf" hidden>
+															id="editimagem_pf" name="editimagem_pf" hidden>
 															</label>	
 													</div>	
 												</div>
 											<div class="col-sm-6">
 												<div class="form-group">
-													<label for="dpendereco_rua_pf">Rua/Quadra/Setor:</label>
-													<input id="dpendereco_rua_pf" type="text" name="dpendereco_rua_pf"class="form-control form-control-sm" 
-													placeholder="<?php echo $endereco_rua_pf;?>">
+													<label for="editendereco_rua_pf">Rua/Quadra/Setor:</label>
+													<input id="editendereco_rua_pf" type="text" name="editendereco_rua_pf"class="form-control form-control-sm" 
+													value="<?php echo $endereco_rua_pf;?>">
 												</div>
 												<div class="form-group">
-													<label for="dpendereco_numero_pf">Número:</label>
-													<input id="dpendereco_numeropf" type="text" name="dpendereco_numero_pf" class="form-control form-control-sm"
-													placeholder="<?php echo $endereco_numero_pf;?>">
+													<label for="editendereco_numero_pf">Número:</label>
+													<input id="editendereco_numeropf" type="text" name="editendereco_numero_pf" class="form-control form-control-sm"
+													value="<?php echo $endereco_numero_pf;?>">
 												</div>
 												<div class="form-group">
-													<label for="dpendereco_complemento_pf">Complemento:</label>
-													<input id="dpendereco_complemento_pf" type="text" name="dpendereco_complemento_pf" class="form-control form-control-sm"
-													placeholder="<?php echo $endereco_complemento_pf;?>">
+													<label for="editendereco_complemento_pf">Complemento:</label>
+													<input id="editendereco_complemento_pf" type="text" name="editendereco_complemento_pf" class="form-control form-control-sm"
+													value="<?php echo $endereco_complemento_pf;?>">
 												</div>
 												<div class="form-group">
-													<label for="dpendereco_bairro_pf">Bairro/Satélite:</label>
-													<input id="dpendereco_bairro_pf" type="text" name="dpendereco_bairro_pf"class="form-control form-control-sm"
-													placeholder="<?php echo $endereco_bairro_pf;?>">
+													<label for="editendereco_bairro_pf">Bairro/Satélite:</label>
+													<input id="editendereco_bairro_pf" type="text" name="editendereco_bairro_pf"class="form-control form-control-sm"
+													value="<?php echo $endereco_bairro_pf;?>">
 												</div>
 												<div class="form-group">
-													<label for="dpendereco_cidade_pf">Cidade:</label>
-													<input id="dpendereco_cidade_pf" type="text" name="dpendereco_cidade_pf" class="form-control form-control-sm"
-													placeholder="<?php echo $endereco_cidade_pf;?>">
+													<label for="editendereco_cidade_pf">Cidade:</label>
+													<input id="editendereco_cidade_pf" type="text" name="editendereco_cidade_pf" class="form-control form-control-sm"
+													value="<?php echo $endereco_cidade_pf;?>">
 												</div>
 												<div class="form-group">
-													<label for="dpendereco_estado_pf">Estado:</label>
-													<input id="dpendereco_estado_pf" type="text" name="dpendereco_estado_pf" class="form-control form-control-sm"
-													placeholder="<?php echo $endereco_estado_pf;?>">
+													<label for="editendereco_estado_pf">Estado:</label>
+													<input id="editendereco_estado_pf" type="text" name="editendereco_estado_pf" class="form-control form-control-sm"
+													value="<?php echo $endereco_estado_pf;?>">
 												</div>
 												<div class="form-group">
-													<label for="dpcep_pf">CEP:</label>
-													<input id="dpcep_pf" type="text" name="dpcep_pf" class="form-control form-control-sm" 
-													placeholder="<?php echo $endereco_cep_pf;?>">
+													<label for="editcep_pf">CEP:</label>
+													<input id="editcep_pf" type="text" name="editcep_pf" class="form-control form-control-sm" 
+													value="<?php echo $endereco_cep_pf;?>">
 												</div>
-
 											</div>
 										</div>
 											<div class="form-group">
@@ -365,7 +367,13 @@ require "validador_cadastro_pf.php";
 								<div class="alert alert-body"><p>Os itens com (*) são obrigatórios</p>
 									<p>Os demais itens poderão ser preenchidos pelo usuário</p></div>
 							</div>
-
+							<div id ="verificador_edit_pf"class="alert alert-sm alert-primary fade" 
+							role="alert">
+								<h6 class="alert-heading">Edição de cadastro</h6>
+								<small>(<?php echo $validadoCPF;?>)</small>								
+								<div class="alert alert-body"><p>Os itens com (*) são obrigatórios</p>
+									<p>Alterando o e-mail, novo código de validação será encaminhado ao usuário</p></div>
+							</div>
 						</div>
 					</div>
 				</div>
