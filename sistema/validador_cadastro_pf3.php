@@ -5,11 +5,16 @@ $foto_pf="";
 
 if(isset($_POST['validar_cpf']) && ($_POST['validar_cpf'] != "")){
 	$validadoCPF=addslashes($_POST['validar_cpf']);
+
 	if(strlen ($validadoCPF)==11){
+
 		$validadoCPF=addslashes($_POST['validar_cpf']);
+		
 		$sql="SELECT * FROM pessoafisica WHERE cpf='$validadoCPF'";
+
 		$sql=$pdo->query($sql);
 		if ($sql->rowCount() > 0){
+
 	        $dados_pf = $sql->fetch();
 			$nome_pf = $dados_pf['nome_pf'];
 			$email_pf = $dados_pf['email_pf'];
@@ -29,13 +34,15 @@ if(isset($_POST['validar_cpf']) && ($_POST['validar_cpf'] != "")){
 			$nasc_pf2 = mktime(0,0,0, $mes, $dia, $ano);
 			$nasc_pf3 = date("d/m/Y", $nasc_pf2);
 			$foto_pf = $dados_pf['foto_pf'];		
+
+//Inicio - Verificação de Imagem cadastrada
 			if(isset($foto_pf) && ($foto_pf != "")){
 				?><script>$(document).ready(function(){
 				document.getElementById('fotoCPF').style.display = 'block';});</script>
 				<?php
-			}else{
-
-			}
+			} 	
+//Término - Verificação de Imagem cadastrada
+//CPF VALIDADO	
 			?><script>$(document).ready(function(){
 			document.getElementById('alert_validacao').style.display = 'none';});</script>
 			<?php 	
@@ -61,6 +68,7 @@ if(isset($_POST['validar_cpf']) && ($_POST['validar_cpf'] != "")){
 			$('#botao_imprimir').removeAttr('disabled');});</script>
 			<?php 
 		}else{
+// CPF Não VALIDADO
 			?><script>$(document).ready(function(){
 			document.getElementById('alert_validacao').style.display = 'none';});</script>
 			<?php 	
@@ -77,8 +85,9 @@ if(isset($_POST['validar_cpf']) && ($_POST['validar_cpf'] != "")){
 			$('#botao_cadastrar').addClass('btn-success');
 			$('#botao_cadastrar').removeAttr('disabled');});</script>
 			<?php 
-		}
+			}
 	}else{
+//CPF INCORRETO
 		?><script>$(document).ready(function(){
 		document.getElementById('alert_validacao').style.display = 'none';});</script>
 		<?php
@@ -98,8 +107,10 @@ if(isset($_POST['validar_cpf']) && ($_POST['validar_cpf'] != "")){
 		$('#botao_verificar').addClass('btn-primary');
 		$('#botao_verificar').removeAttr('disabled');});</script>
 		<?php 
+
 	}
 }else{
+//CPF para VALIDAR
 	?><script>$(document).ready(function(){
 	$('#validar_cpf').removeAttr('disabled');});</script>
 	<?php 	
@@ -119,14 +130,18 @@ if(isset($_POST['validar_cpf']) && ($_POST['validar_cpf'] != "")){
 	$('#botao_verificar').addClass('btn-primary');
 	$('#botao_verificar').removeAttr('disabled');});</script>
 	<?php 
-}
 
+}
 //Cadastro novo usuário
 if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 	if(isset($_POST['dprg_pf']) && ($_POST['dprg_pf'] != "")){
+
+		//Criação da Pasta Pessoa Fisica
 	$cpf = addslashes($_POST['dpcpf']);
 	mkdir("../pessoafisica/$cpf");
 	mkdir("../pessoafisica/$cpf/DocumentosPessoais");
+
+	//Inicio da Inclusão de dados
 
 	$data_criacao = date("Y/m/d H:i:s");
 	$nome_pf = addslashes($_POST['dpnome_pf']);
@@ -163,11 +178,14 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 	<span aria-hidden='true'>&times;</span>
 	</button> 
 	</div>";
+//Inicio - Inserção de Imagem 
 		if(isset($_FILES['dpimagem_pf']) && ($_FILES['dpimagem_pf'] != "")){
 		$imagem_pf = $_FILES['dpimagem_pf'];
 			if(isset($imagem_pf['tmp_name']) && ($imagem_pf['tmp_name'] != "")){
 				if(($imagem_pf['type']=='image/png') OR ($imagem_pf['type']== "image/jpeg")){
 					if($imagem_pf['type']=='image/png'){
+
+//Imagem em PNG reverter para JPG	
 					//Guardando a Imagem na Pasta
 					$imagem_pf = $_FILES['dpimagem_pf'];
 					$image_temp	= $imagem_pf['tmp_name'];
@@ -204,7 +222,10 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 					imagejpeg($image_new, '../pessoafisica/'.$cpf.'/mini_imagem-'.$cpf.'.jpg', 100);					
 		            $sql="UPDATE pessoafisica SET foto_pf='$foto_pf' WHERE cpf='$cpf'";
 	                $sql=$pdo->query($sql);
+
+					//Término Criar Imagem MIni
 					}else{
+//Imagem em JPG 	
 						//Guardando a Imagem na Pasta
 						$imagem_pf = $_FILES['dpimagem_pf'];
 						$image_temp	= $imagem_pf['tmp_name'];
@@ -229,33 +250,34 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 			            $sql="UPDATE pessoafisica SET foto_pf='$foto_pf' WHERE cpf='$cpf'";
 		                $sql=$pdo->query($sql);
 						//Término Criar Imagem MIni
-						//Confirmação de Cadastro
-						echo '<div class="container-fluid">
-						<div class="modal fade show" id="confirmacao">
-						<div class="modal-dialog modal-dialog-centered modal-md"> 
-						<div class="modal-content">
-						<div class="modal-header modal-header-sm">
-						<img src="pessoafisica/'.$cpf.'/mini_imagem-'.$cpf.'.jpg" class="img-fluid img-thumbnail float-right">
-						<h5 class="modal-titulo">Cadastro Realizado!!!</h5>
-						<button class="close" data-dismiss="modal">
-						<span>&times;</span>
-						</button>
-						</div>
-						<div class="modal-body">
-						Criado em: '.$data_criacao.'<br>
-						Nome: '.$nome_pf.'<br>
-						CPF: '.$cpf.'<br>
-						RG: '.$rg_pf.'
-						</div>
-						<div class="modal-footer justify-content-between">
-						<button class="btn btn-danger" data-dismiss="modal">Fechar</button>
-						</div>
-						</div>	
-						</div>
-						</div>
-						</div>';
-						//Término Confirmação de Cadastro com imagem 
-					}
+						}
+//Término da Criação de Imagem
+				//Confirmação de Cadastro
+				echo '<div class="container-fluid">
+				<div class="modal fade show" id="confirmacao">
+				<div class="modal-dialog modal-dialog-centered modal-md"> 
+				<div class="modal-content">
+				<div class="modal-header modal-header-sm">
+				<img src="pessoafisica/'.$cpf.'/mini_imagem-'.$cpf.'.jpg" class="img-fluid img-thumbnail float-right">
+				<h5 class="modal-titulo">Cadastro Realizado!!!</h5>
+				<button class="close" data-dismiss="modal">
+				<span>&times;</span>
+				</button>
+				</div>
+				<div class="modal-body">
+				Criado em: '.$data_criacao.'<br>
+				Nome: '.$nome_pf.'<br>
+				CPF: '.$cpf.'<br>
+				RG: '.$rg_pf.'
+				</div>
+				<div class="modal-footer justify-content-between">
+				<button class="btn btn-danger" data-dismiss="modal">Fechar</button>
+				</div>
+				</div>	
+				</div>
+				</div>
+				</div>';
+				//Término Confirmação de Cadastro com imagem 
 				}else{
 					echo"
 					<div class='container-fluid'>
@@ -274,7 +296,7 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 					</div>
 					</div>
 					<script>$('#erro').modal('show')</script>";
-				}
+					}
 			}else{
 				echo"<div class='alert alert-lg alert-warning alert dismissible show' role='alert' id='AlertaCadastro'>
 				Imagem não arquivada!
@@ -307,21 +329,18 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 				</div>
 				</div>';
 					if($validacao == "Falta validar"){ ?><script>$(document).ready(function(){
-					$('#confirmacao').modal('show');});</script><?php
-					}
+					$('#confirmacao').modal('show');});</script>
+					<?php}
 			}
-			//Inserindo Modal de Validação
-				if($validacao == "Falta validar"){ ?><script>$(document).ready(function(){
-				$('#confirmacao').modal('show');});</script>
-				<?php }
-		}else{
-			echo"<div class='alert alert-lg alert-warning alert dismissible show' role='alert' id='AlertaCadastro'>
-			Imagem não arquivada!
-			<button class='close' data-dismiss='alert' aria-label='fechar'>
-			<span aria-hidden='true'>&times;</span>
-			</button> 
-			</div>";
 		}
+//Termino - Inserção de Imagem 
+
+	//Inserindo Modal de Validação
+	if($validacao == "Falta validar"){ ?><script>$(document).ready(function(){
+	$('#confirmacao').modal('show');});</script>
+	<?php }
+
+//Inicio - Validação e inclusão de E-mail
 
 		if(isset($_POST['dpemail_pf']) && ($_POST['dpemail_pf'] != "")){
 			$email_pf=addslashes($_POST['dpemail_pf']);
@@ -404,10 +423,17 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 		<script>$('#erro').modal('show')</script>";
 			}
 		}
+//Termino - Validação e inclusão de E-mail
 	}else{
-		echo"RG Incorreto";
+		echo "RG Não informado";
 	}
-
 }else{
-
+	echo"Nome Completo não informado";
 }
+//Término da Inclusão de dados
+
+
+//Incio de Edição de Dados
+
+
+//Término de Edição de Dados 
