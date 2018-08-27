@@ -8,11 +8,55 @@ require "configuracoes.php";
         $sql= $pdo->query($sql);
         $dados = $sql->fetch();
         $usuario_status=$dados['usuario_status'];
+        $cpf=$usuario_autentic;
+
+  		$sql="SELECT * FROM pessoafisica WHERE cpf='$cpf'";
+		$sql=$pdo->query($sql);
+	        $dados_pf = $sql->fetch();
+			$nome_pf = $dados_pf['nome_pf'];
+			$email_pf = $dados_pf['email_pf'];
+			$cpf = $dados_pf['cpf'];
+			$rg_pf = $dados_pf['rg_pf'];
+			$telefone_pf = $dados_pf['telefone_pf'];
+			$endereco_rua_pf = $dados_pf['endereco_rua_pf'];
+			$endereco_numero_pf = $dados_pf['endereco_numero_pf'];
+			$endereco_complemento_pf = $dados_pf['endereco_complemento_pf'];
+			$endereco_bairro_pf = $dados_pf['endereco_bairro_pf'];
+			$endereco_cidade_pf = $dados_pf['endereco_cidade_pf'];
+			$endereco_estado_pf = $dados_pf['endereco_estado_pf'];
+			$endereco_cep_pf = $dados_pf['endereco_cep_pf'];
+			$validadoCPF = $cpf;			
+			$nasc_pf = date($dados_pf['nasc_pf']);
+			list($ano, $mes, $dia) = explode('-', $nasc_pf);
+			$nasc_pf2 = mktime(0,0,0, $mes, $dia, $ano);
+			$nasc_pf3 = date("d/m/Y", $nasc_pf2);
+			$foto_pf = $dados_pf['foto_pf'];		
+
+			if(isset($foto_pf) && ($foto_pf != "")){
+				?><script>$(document).ready(function(){
+				document.getElementById('fotoCPF').style.display = 'block';});</script>
+				<?php
+
+			}else{
+
+			}
+
+			?><script>$(document).ready(function(){
+			$('#BTNCadastroEditar').addClass('btn-warning');
+			$('#BTNCadastroEditar').removeAttr('disabled');});</script>
+			<?php 
+
 		if($usuario_status=="Validado"){
 			?><script>$(document).ready(function(){
 			$('#cadastrar_unidade').addClass('active').removeClass('disabled');});</script>
 			<?php }    	
+
     }else{
+		?><script>$(document).ready(function(){
+		$('#BTNCadastroNovo').addClass('btn-primary');
+		$('#BTNCadastroNovo').removeAttr('disabled');});</script>
+		<?php 
+
     }
 //Cadastro novo usuário
 if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
@@ -154,7 +198,7 @@ echo"
 // Mandando e-mail de validação 
 $assuntovalida = "Total Ville 101 - Valide de Cadastro";
 $mensagemvalida = "<h3>Prezado(a) ".$nome_pf."</h3>
-<p>O seu cadastro em nosso sistema foi realizado com sucesso pelo Administrador</p>
+<p>O seu cadastro em nosso sistema foi realizado com sucesso!</p>
 <p>Usuário: ".$cpf."</p>
 <p>Senha Temporária: ".$cpf."</p>
 <p>Código de Validação: ".$cod_valida."</p>
@@ -695,5 +739,4 @@ echo"
 }else{
 
 }
-
 ?>
