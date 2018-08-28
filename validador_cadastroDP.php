@@ -25,6 +25,8 @@ require "configuracoes.php";
 			$endereco_cidade_pf = $dados_pf['endereco_cidade_pf'];
 			$endereco_estado_pf = $dados_pf['endereco_estado_pf'];
 			$endereco_cep_pf = $dados_pf['endereco_cep_pf'];
+			$sexo_pf = $dados_pf['sexo_pf'];
+			$estadocivil_pf = $dados_pf['estadocivil_pf'];
 			$validadoCPF = $cpf;			
 			$nasc_pf = date($dados_pf['nasc_pf']);
 			list($ano, $mes, $dia) = explode('-', $nasc_pf);
@@ -63,31 +65,33 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 	if(isset($_POST['dpcpf']) && ($_POST['dpcpf'] != "")){
 		if(isset($_POST['dprg_pf']) && ($_POST['dprg_pf'] != "")){
 			if(isset($_POST['dpemail_pf']) && ($_POST['dpemail_pf'] != "")){
-				if(isset($_POST['dptelefone_pf']) && ($_POST['dptelefone_pf'] != "")){
-					if(isset($_POST['dpendereco_rua_pf']) && ($_POST['dpendereco_rua_pf'] != "")){
-						if(isset($_POST['dpendereco_numero_pf']) && ($_POST['dpendereco_numero_pf'] != "")){
-							if(isset($_POST['dpendereco_bairro_pf']) && ($_POST['dpendereco_bairro_pf'] != "")){
-								if(isset($_POST['dpendereco_cidade_pf']) && ($_POST['dpendereco_cidade_pf'] != "")){
-									if(isset($_POST['dpendereco_estado_pf']) 
-										&& ($_POST['dpendereco_estado_pf'] != "")){
-										if(isset($_POST['dpsenha']) && ($_POST['dpsenha'] != "")){
-											if(isset($_POST['dpconfirma_senha']) 
-												&& ($_POST['dpconfirma_senha'] != "")){
-												if(($_POST['dpsenha'])==($_POST['dpconfirma_senha'])){
-												$cpf=addslashes($_POST['dpcpf']);
-													if(strlen ($cpf)==11){
-													$cpf=addslashes($_POST['dpcpf']);
-														if(is_numeric($cpf)){
-														$email_pf=addslashes($_POST['dpemail_pf']);
-															if(preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $email_pf)){
-																if(isset($_POST['dpcep_pf']) 
-																	&& ($_POST['dpcep_pf'] != "")){
-																$cep_pf=addslashes($_POST['dpcep_pf']);
-																	if(preg_match('/^[0-9]{5,5}([- ]?[0-9]{3,3})?$/', $cep_pf)){
-																	$telefone_pf=addslashes($_POST['dptelefone_pf']);	
-																		if(preg_match('/^[0-9]{4,5}([- ]?[0-9]{4})?$/', $telefone_pf)){
-																			if(isset($_POST['dpnasc_pf']) 
-																				&& ($_POST['dpnasc_pf'] != "")){
+				if(isset($_POST['dpsexo_pf']) && ($_POST['dpsexo_pf'] != "")){
+					if(isset($_POST['dpestadocivil_pf']) && ($_POST['dpestadocivil_pf'] != "")){
+						if(isset($_POST['dptelefone_pf']) && ($_POST['dptelefone_pf'] != "")){
+							if(isset($_POST['dpendereco_rua_pf']) && ($_POST['dpendereco_rua_pf'] != "")){
+								if(isset($_POST['dpendereco_numero_pf']) && ($_POST['dpendereco_numero_pf'] != "")){
+									if(isset($_POST['dpendereco_bairro_pf']) && ($_POST['dpendereco_bairro_pf'] != "")){
+										if(isset($_POST['dpendereco_cidade_pf']) && ($_POST['dpendereco_cidade_pf'] != "")){
+											if(isset($_POST['dpendereco_estado_pf']) 
+												&& ($_POST['dpendereco_estado_pf'] != "")){
+												if(isset($_POST['dpsenha']) && ($_POST['dpsenha'] != "")){
+													if(isset($_POST['dpconfirma_senha']) 
+														&& ($_POST['dpconfirma_senha'] != "")){
+														if(($_POST['dpsenha'])==($_POST['dpconfirma_senha'])){
+														$cpf=addslashes($_POST['dpcpf']);
+															if(strlen ($cpf)==11){
+															$cpf=addslashes($_POST['dpcpf']);
+																if(is_numeric($cpf)){
+																$email_pf=addslashes($_POST['dpemail_pf']);
+																	if(preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $email_pf)){
+																		if(isset($_POST['dpcep_pf']) 
+																			&& ($_POST['dpcep_pf'] != "")){
+																		$cep_pf=addslashes($_POST['dpcep_pf']);
+																			if(preg_match('/^[0-9]{5,5}([- ]?[0-9]{3,3})?$/', $cep_pf)){
+																			$telefone_pf=addslashes($_POST['dptelefone_pf']);	
+																				if(preg_match('/^[0-9]{4,5}([- ]?[0-9]{4})?$/', $telefone_pf)){
+																					if(isset($_POST['dpnasc_pf']) 
+																						&& ($_POST['dpnasc_pf'] != "")){
 //Verificação de CPF e E-mail no banco de dados 
 	$sql="SELECT * FROM pessoafisica WHERE cpf='$cpf'";
 	$sql=$pdo->query($sql);
@@ -144,6 +148,8 @@ echo"
 	$email_pf = addslashes($_POST['dpemail_pf']);
 	$cpf = addslashes($_POST['dpcpf']);
 	$rg_pf = addslashes($_POST['dprg_pf']);
+	$sexo_pf = addslashes($_POST['dpsexo_pf']);
+	$estadocivil_pf = addslashes($_POST['dpestadocivil_pf']);
 	$telefone_pf = addslashes($_POST['dptelefone_pf']);
 	$endereco_rua_pf = addslashes($_POST['dpendereco_rua_pf']);
 	$endereco_numero_pf = addslashes($_POST['dpendereco_numero_pf']);
@@ -161,7 +167,7 @@ echo"
 	            email_pf='$email_pf', telefone_pf='$telefone_pf', endereco_rua_pf='$endereco_rua_pf', 
 	            endereco_numero_pf='$endereco_numero_pf', nasc_pf='$nasc_pf', 
 	            endereco_complemento_pf='$endereco_complemento_pf', 
-	            endereco_bairro_pf='$endereco_bairro_pf', endereco_cidade_pf='$endereco_cidade_pf', 
+	            endereco_bairro_pf='$endereco_bairro_pf', sexo_pf='$sexo_pf', estadocivil_pf='$estadocivil_pf', endereco_cidade_pf='$endereco_cidade_pf', 
 	            endereco_estado_pf='$endereco_estado_pf', endereco_cep_pf='$endereco_cep_pf', cpf='$cpf'";
                 $sql=$pdo->query($sql);
 
@@ -308,6 +314,7 @@ Para alterar seu e-mail cadastrado faça seu login e retorne aos seus Dados Pess
 </div>
 </div>
 </div>';
+
 //Término Cornifrmação de Cadastro
  						}else{
 echo"
@@ -362,6 +369,7 @@ Para alterar seu e-mail cadastrado faça seu login e retorne aos seus Dados Pess
 if($validacao == "Falta validar"){ ?><script>$(document).ready(function(){
 $('#confirmacao').modal('show');});</script>
 <?php }
+exit;
 
 						}
 					}
@@ -369,313 +377,355 @@ $('#confirmacao').modal('show');});</script>
 if($validacao == "Falta validar"){ ?><script>$(document).ready(function(){
 $('#confirmacao').modal('show');});</script>
 <?php }
+exit;
+
 			}
 		}
 //Término da Inclusão de dados
-																			}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Data de Nascimento não informado
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+																					}else{
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Data de Nascimento não informado
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
+		</div>
+		<script>$('#erro').modal('show')</script>";
+																					}
+																				}else{
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Número de telefone incorreto
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<script>$('#erro').modal('show')</script>";
+																				}
+																			}else{
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> CEP de residência incorreto
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<script>$('#erro').modal('show')</script>";
 																			}
 																		}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Número de telefone incorreto
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> CEP de residência não informado
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
-																		}
+		</div>
+		<script>$('#erro').modal('show')</script>";
+																		}	
 																	}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> CEP de residência incorreto
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> E-mail informado inválido
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
+		</div>
+		<script>$('#erro').modal('show')</script>";
 																	}
-																}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> CEP de residência não informado
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+																}
+																else{
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Informe seu CPF somente números
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
-																}	
+		</div>
+		<script>$('#erro').modal('show')</script>";
+																}
 															}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> E-mail informado inválido
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> CPF cadastrado incorreto
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
+		</div>
+		<script>$('#erro').modal('show')</script>";
 															}
-														}
-														else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Informe seu CPF somente números
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+														}else{
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Confirmação de senha incorreta
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
-														}
+		</div>
+		<script>$('#erro').modal('show')</script>";
+														}	
 													}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> CPF cadastrado incorreto
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Confirme sua senha
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
+		</div>
+		<script>$('#erro').modal('show')</script>";
 													}
 												}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Confirmação de senha incorreta
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Senha não informada
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
-												}	
+		</div>
+		<script>$('#erro').modal('show')</script>";
+												}									
 											}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Confirme sua senha
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Estado não informado
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
+		</div>
+		<script>$('#erro').modal('show')</script>";
 											}
 										}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Senha não informada
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Cidade não informada
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
-										}									
+		</div>
+		<script>$('#erro').modal('show')</script>";
+										}
 									}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Estado não informado
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Bairro/Satélite não informado
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
+		</div>
+		<script>$('#erro').modal('show')</script>";
 									}
 								}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Cidade não informada
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Numero de residencia não informado
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
+		</div>
+		<script>$('#erro').modal('show')</script>";
 								}
 							}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Bairro/Satélite não informado
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Rua/Setor/Quadra não informado
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
+		</div>
+		<script>$('#erro').modal('show')</script>";
 							}
 						}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Numero de residencia não informado
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Telefone não informado
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
+		</div>
+		<script>$('#erro').modal('show')</script>";
 						}
+
 					}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Rua/Setor/Quadra não informado
-				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
+		echo"
+		<div class='container-fluid'>
+			<div class='modal fade' id='erro'>
+				<div class='modal-dialog modal-dialog-centered modal-sm'> 
+					<div class='modal-content'>
+						<div class='modal-body'>
+		<b>Erro:</b> Estado Civil não informado
+						</div>
+					<div class='modal-footer justify-content-between'>
+						<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+							Retornar ao Cadastro
+						</button>
+					</div>
+				</div>	
 			</div>
-		</div>	
-	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
+		</div>
+		<script>$('#erro').modal('show')</script>";
 					}
+
 				}else{
-echo"
-<div class='container-fluid'>
-	<div class='modal fade' id='erro'>
-		<div class='modal-dialog modal-dialog-centered modal-sm'> 
-			<div class='modal-content'>
-				<div class='modal-body'>
-<b>Erro:</b> Telefone não informado
+	echo"
+	<div class='container-fluid'>
+		<div class='modal fade' id='erro'>
+			<div class='modal-dialog modal-dialog-centered modal-sm'> 
+				<div class='modal-content'>
+					<div class='modal-body'>
+	<b>Erro:</b> Sexo não informado
+					</div>
+				<div class='modal-footer justify-content-between'>
+					<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
+						Retornar ao Cadastro
+					</button>
 				</div>
-			<div class='modal-footer justify-content-between'>
-				<button class='btn btn-danger' data-dismiss='modal' onclick='history.go(-1)''>
-					Retornar ao Cadastro
-				</button>
-			</div>
-		</div>	
+			</div>	
+		</div>
 	</div>
-</div>
-<script>$('#erro').modal('show')</script>";
+	<script>$('#erro').modal('show')</script>";
 				}
 			}else{
 echo"

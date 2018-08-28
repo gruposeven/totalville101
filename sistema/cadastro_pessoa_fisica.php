@@ -139,6 +139,24 @@ require "validador_cadastro_pf.php";
 														form-control-sm">
 													</div>
 													<div class="form-group">
+														<label for="sexo">Sexo:</label>
+															<select id="sexo" class="custom-select custom-select-md" name="dpsexo_pf">
+																<option value=""></option>
+																<option value="Masculino">Masculino</option>
+																<option value="Feminino">Feminino</option>
+															</select>
+													</div>
+													<div class="form-group">
+														<label for="estadocivil">Estado Civil:</label>
+															<select id="estadocivil" class="custom-select custom-select-md" name="dpestadocivil_pf">
+																<option value=""></option>
+																<option value="Solteiro">Solteiro</option>
+																<option value="Casado">Casado</option>
+																<option value="Divorciado">Divorciado</option>
+																<option value="Viúvo">Viúvo</option>
+															</select>
+													</div>
+													<div class="form-group">
 														<label for="dpemail_pf">E-mail:</label>
 														<input id="dpemail_pf" type="email" name="dpemail_pf" class="form-control 
 														form-control-sm">
@@ -183,22 +201,50 @@ require "validador_cadastro_pf.php";
 													<input id="dpendereco_cidade_pf" type="text" name="dpendereco_cidade_pf" 
 													class="form-control form-control-sm">
 												</div>
-												<div class="form-group">
-													<label for="dpendereco_estado_pf">Estado:</label>
-													<input id="dpendereco_estado_pf" type="text" name="dpendereco_estado_pf" class="form-control 
-													form-control-sm">
-												</div>
+													<div class="form-group">
+														<label for="estado">Estado:</label>
+															<select id="estado" class="custom-select custom-select-md" name="dpendereco_estado_pf">
+																<option value=""></option>
+																<option value="AC">ACRE</option>
+																<option value="AL">ALAGOAS</option>
+																<option value="AP">AMAPÁ</option>
+																<option value="AM">AMAZONAS</option>
+																<option value="BA">BAHIA</option>
+																<option value="CE">CEARÁ</option>
+																<option value="DF">DISTRITO FEDERAL</option>
+																<option value="ES">ESPÍRITO SANTO</option>
+																<option value="GO">GOIÁS</option>
+																<option value="MA">MARANHÃO</option>
+																<option value="MT">MATO GROSSO</option>
+																<option value="MS">MATO GROSSO DO SUL</option>
+																<option value="MG">MINAS GERAIS</option>
+																<option value="PA">PARÁ</option>
+																<option value="PB">PARAÍBA</option>
+																<option value="PR">PARANÁ</option>
+																<option value="PE">PERNAMBUCO</option>
+																<option value="PI">PIAUÍ</option>
+																<option value="RN">RIO GRANDE DO NORTE</option>
+																<option value="RS">RIO GRANDE DO SUL</option>
+																<option value="RJ">RIO DE JANEIRO</option>
+																<option value="RO">RONDÔNIA</option>
+																<option value="RR">RORAIMA</option>
+																<option value="SC">SANTA CATARINA</option>
+																<option value="SP">SÃO PAULO</option>
+																<option value="SE">SERGIPE</option>
+																<option value="TO">TOCANTINS</option>
+															</select>
+													</div>
 												<div class="form-group">
 													<label for="dpcep_pf">CEP:</label>
 													<input id="dpcep_pf" type="text" name="dpcep_pf" class="form-control form-control-sm">
 												</div>
-
+												
+												<div class="form-group">
+													<input type="submit" value="Cadastrar" 
+													class="btn btn-success">
+												</div>
 											</div>
 										</div>
-											<div class="form-group">
-												<input type="submit" value="Cadastrar" 
-												class="btn btn-success">
-											</div>
 										</form>	
 									</div>
 								</div>
@@ -233,6 +279,24 @@ require "validador_cadastro_pf.php";
 														<label for="editemail_pf">E-mail:</label>
 														<input id="editemail_pf" type="email" name="editemail_pf" class="form-control form-control-sm" 
 														value="<?php echo $email_pf;?>">
+													</div>
+													<div class="form-group">
+														<label for="sexo">Sexo:</label>
+															<select id="sexo" class="custom-select custom-select-md" name="editsexo_pf">
+																<option value="<?php echo $sexo_pf;?>"><?php echo $sexo_pf;?></option>
+																<option value="Masculino">Masculino</option>
+																<option value="Feminino">Feminino</option>
+															</select>
+													</div>
+													<div class="form-group">
+														<label for="estadocivil">Estado Civil:</label>
+															<select id="estadocivil" class="custom-select custom-select-md" name="editestadocivil_pf">
+																<option value="<?php echo $estadocivil_pf;?>"><?php echo $estadocivil_pf;?></option>
+																<option value="Solteiro">Solteiro</option>
+																<option value="Casado">Casado</option>
+																<option value="Divorciado">Divorciado</option>
+																<option value="Viúvo">Viúvo</option>
+															</select>
 													</div>
 													<div class="form-group">
 														<label for="editetelefone_pf">Telefone:</label>
@@ -275,22 +339,50 @@ require "validador_cadastro_pf.php";
 													<input id="editendereco_cidade_pf" type="text" name="editendereco_cidade_pf" class="form-control form-control-sm"
 													value="<?php echo $endereco_cidade_pf;?>">
 												</div>
-												<div class="form-group">
-													<label for="editendereco_estado_pf">Estado:</label>
-													<input id="editendereco_estado_pf" type="text" name="editendereco_estado_pf" class="form-control form-control-sm"
-													value="<?php echo $endereco_estado_pf;?>">
-												</div>
+													<div class="form-group">
+														<label for="estado">Estado:</label>
+															<select id="estado" class="custom-select custom-select-md" name="editendereco_estado_pf">
+																<option value="<?php echo $endereco_estado_pf;?>"><?php echo $endereco_estado_pf;?></option>
+																<option value="AC">ACRE</option>
+																<option value="AL">ALAGOAS</option>
+																<option value="AP">AMAPÁ</option>
+																<option value="AM">AMAZONAS</option>
+																<option value="BA">BAHIA</option>
+																<option value="CE">CEARÁ</option>
+																<option value="DF">DISTRITO FEDERAL</option>
+																<option value="ES">ESPÍRITO SANTO</option>
+																<option value="GO">GOIÁS</option>
+																<option value="MA">MARANHÃO</option>
+																<option value="MT">MATO GROSSO</option>
+																<option value="MS">MATO GROSSO DO SUL</option>
+																<option value="MG">MINAS GERAIS</option>
+																<option value="PA">PARÁ</option>
+																<option value="PB">PARAÍBA</option>
+																<option value="PR">PARANÁ</option>
+																<option value="PE">PERNAMBUCO</option>
+																<option value="PI">PIAUÍ</option>
+																<option value="RN">RIO GRANDE DO NORTE</option>
+																<option value="RS">RIO GRANDE DO SUL</option>
+																<option value="RJ">RIO DE JANEIRO</option>
+																<option value="RO">RONDÔNIA</option>
+																<option value="RR">RORAIMA</option>
+																<option value="SC">SANTA CATARINA</option>
+																<option value="SP">SÃO PAULO</option>
+																<option value="SE">SERGIPE</option>
+																<option value="TO">TOCANTINS</option>
+															</select>
+													</div>
 												<div class="form-group">
 													<label for="editcep_pf">CEP:</label>
 													<input id="editcep_pf" type="text" name="editcep_pf" class="form-control form-control-sm" 
 													value="<?php echo $endereco_cep_pf;?>">
 												</div>
+												<div class="form-group">
+													<input type="submit" value="Editar" 
+													class="btn btn-warning">
+												</div>
 											</div>
-										</div>
-											<div class="form-group">
-												<input type="submit" value="Editar" 
-												class="btn btn-warning">
-											</div>
+										</div>	
 										</form>	
 									</div>
 								</div>

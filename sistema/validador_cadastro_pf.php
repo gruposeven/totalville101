@@ -23,7 +23,9 @@ if(isset($_POST['validar_cpf']) && ($_POST['validar_cpf'] != "")){
 			$endereco_cidade_pf = $dados_pf['endereco_cidade_pf'];
 			$endereco_estado_pf = $dados_pf['endereco_estado_pf'];
 			$endereco_cep_pf = $dados_pf['endereco_cep_pf'];
-			$validadoCPF = $dados_pf['cpf'];			
+			$validadoCPF = $dados_pf['cpf'];
+			$sexo_pf =$dados_pf['sexo_pf'];
+			$estadocivil_pf= $dados_pf['estadocivil_pf'];			
 			$nasc_pf = date($dados_pf['nasc_pf']);
 			list($ano, $mes, $dia) = explode('-', $nasc_pf);
 			$nasc_pf2 = mktime(0,0,0, $mes, $dia, $ano);
@@ -142,6 +144,8 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
 	$endereco_cep_pf = addslashes($_POST['dpcep_pf']);
 	$senha = md5($cpf);
 	$nasc_pf = addslashes($_POST['dpnasc_pf']);
+	$sexo_pf = addslashes($_POST['dpsexo_pf']);
+	$estadocivil_pf = addslashes($_POST['dpestadocivil_pf']);
 	$validacao = "Falta validar";
 	$cod_valida = rand(100, 999);
 
@@ -149,7 +153,7 @@ if(isset($_POST['dpnome_pf']) && ($_POST['dpnome_pf'] != "")){
     telefone_pf='$telefone_pf', endereco_rua_pf='$endereco_rua_pf', 
     endereco_numero_pf='$endereco_numero_pf', nasc_pf='$nasc_pf', 
     endereco_complemento_pf='$endereco_complemento_pf', 
-    endereco_bairro_pf='$endereco_bairro_pf', endereco_cidade_pf='$endereco_cidade_pf', 
+    endereco_bairro_pf='$endereco_bairro_pf', sexo_pf='$sexo_pf', estadocivil_pf='$estadocivil_pf', endereco_cidade_pf='$endereco_cidade_pf', 
     endereco_estado_pf='$endereco_estado_pf', endereco_cep_pf='$endereco_cep_pf', cpf='$cpf'";
     $sql=$pdo->query($sql);
 
