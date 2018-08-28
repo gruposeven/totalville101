@@ -74,7 +74,7 @@
 					<div class="Corpocontainer">
 						<!-- Artigos-->
 						<article>
-							<a href="documentos/Contrato_AeS.pdf" target="_blank"><div class="Articleopcoes">
+							<a href="" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">Contrato - Administradora
 								</div>
 								<div class="projeto_linha">
@@ -87,7 +87,7 @@
 								</div>	
 							</div></a>	
 							
-							<a href="documentos/contrato_centro_sul.pdf" target="_blank"><div class="Articleopcoes">
+							<a href="" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">Contrato - Terceirização 
 								</div>
 								<div class="projeto_linha">
@@ -100,7 +100,7 @@
 								</div>	
 							</div></a>
 	
-							<a href="documentos/CONTRATO_HIDRUS.pdf" target="_blank"><div class="Articleopcoes">
+							<a href="" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">Contrato - Medição de Água
 								</div>
 								<div class="projeto_linha">
@@ -113,7 +113,7 @@
 								</div>	
 							</div></a>	
 
-							<a href="documentos/aditivo_hidrus.pdf" target="_blank"><div class="Articleopcoes">
+							<a href="" target="_blank"><div class="Articleopcoes">
 								<div class="projeto_titulo">Contrato - Medição de Água
 								</div>
 								<div class="projeto_linha">
