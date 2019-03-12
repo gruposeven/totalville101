@@ -30,3 +30,5 @@ Repasse do banco de dados SQL externo
 
 Pendente: "?Esqueci Senha" 
 
+Temporariamente inativado
+
