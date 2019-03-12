@@ -43,3 +43,5 @@ $usuarios_status sem autorização de sistema =
 	- Locatario 
 	- Procurador 
 	- Dependente
+
+Temporariamente inativado
