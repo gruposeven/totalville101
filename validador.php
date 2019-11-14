@@ -74,6 +74,8 @@ $sql=$pdo->query($sql);
 				$_SESSION['sobrenome_pf']=$dados_pf['sobrenome_pf'];
 				$_SESSION['email_pf']=$dados_pf['email_pf'];
 				$_SESSION['usuario']=$dados_pf['cpf'];
+				$_SESSION['categoria_pf']=$dados_pf['categoria_pf'];
+
 			
 
 				$sql="INSERT INTO acesso_sistema SET acesso='$acesso', ip_usuario='$ip_usuario', usuario='$usuario_aut'";

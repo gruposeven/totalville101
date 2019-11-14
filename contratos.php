@@ -6,7 +6,22 @@
 
 		<?php
 		require "configuracoes.php";
+
+		
+		session_start();
+			if(isset($_SESSION['usuario']) && empty($_SESSION['usuario'])== false){
+
+                    $usuario= addslashes($_SESSION['usuario']);
+                    $sql="SELECT * FROM pessoafisica WHERE cpf='$usuario'";
+                    $sql= $pdo->query($sql);
+                    $dados = $sql->fetch();
+                    $cpf=$dados['cpf'];
+                    $nome_pf=$dados['nome_pf'];
+                    $categoria_pf=$dados['categoria_pf'];}
+		
 		?>
+		
+	</head>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="biblioteca/normalize.css">
@@ -34,12 +49,29 @@
 							</div>
 							<ul>
 								<li class="active"><a href="./"> Home</a></li>
-								<li><a href="reserva.php"> Reservas</a></li>
-								<li><a href="contas.php"> Prestação de Contas</a></li>
-								<li><a href="atas.php"> Assembléias</a></li>
-								<li><a href="documentos/ConvencaoRegistrada.pdf" target="_blank"> Convenção </a></li>
-								<li><a href="documentos/RegimentoInterno.pdf" target="_blank"> Regimento</a></li>
-								<li><a href="negociacoes.php"> Negociações </a></li>
+								<li><a href="http://www.sistema.totalville101.com.br" target="_blank"> Reservas</a></li>
+								<li><a href="../assembleias.php"> Assembléias</a></li>
+								<li><a href="../documentos/ConvencaoRegistrada.pdf" target="_blank"> Convenção </a></li>
+								<li><a href="../documentos/RegimentoInterno.pdf" target="_blank"> Regimento</a></li>
+								<li><a href="../eel.php" target="_blank"> Esporte</a></li>
+								<li><a href="../eventos.php" target="_blank"> Eventos</a></li>
+								<?php
+								if(isset($_SESSION['usuario']) && empty($_SESSION['usuario'])== false){
+									if($categoria_pf == 1){
+										echo'<li><a href="../sistema/diretoria.php"> Diretoria </a></li>';
+										}else{
+											if($categoria_pf > 1 AND $categoria_pf < 10){
+											echo'<li><a href="../sistema/administrativo.php"> Administrativo </a></li>';	
+												}else{
+													if($categoria_pf >= 10){
+													echo'<li><a href="../sistema/esp_condomino.php">Espaço do Condômino</a></li>';
+												}
+											}
+										}
+									}else{
+										echo'<li><a href="login.php">Login</a></li>';
+									}
+								?>
 							</ul>
 						</nav>
 					</div>
@@ -47,7 +79,7 @@
 			</header>
 			<div class="sessao">
 <?php
-			session_start();
+			
 			if(isset($_SESSION['usuario']) && empty($_SESSION['usuario'])== false){
 
                     $usuario= addslashes($_SESSION['usuario']);
@@ -56,6 +88,7 @@
                     $dados = $sql->fetch();
                     $cpf=$dados['cpf'];
                     $nome_pf=$dados['nome_pf'];
+                    $categoria_pf=$dados['categoria_pf'];
                     
                     
                         echo''.$nome_pf.' CPF: '.$cpf.'';

@@ -6,7 +6,22 @@
 
 		<?php
 		require "configuracoes.php";
+
+		
+		session_start();
+			if(isset($_SESSION['usuario']) && empty($_SESSION['usuario'])== false){
+
+                    $usuario= addslashes($_SESSION['usuario']);
+                    $sql="SELECT * FROM pessoafisica WHERE cpf='$usuario'";
+                    $sql= $pdo->query($sql);
+                    $dados = $sql->fetch();
+                    $cpf=$dados['cpf'];
+                    $nome_pf=$dados['nome_pf'];
+                    $categoria_pf=$dados['categoria_pf'];}
+		
 		?>
+		
+	</head>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="biblioteca/normalize.css">
@@ -34,12 +49,29 @@
 							</div>
 							<ul>
 								<li class="active"><a href="./"> Home</a></li>
-								<li><a href="reserva.php"> Reservas</a></li>
-								<li><a href="contas.php"> Prestação de Contas</a></li>
-								<li><a href="atas.php"> Assembléias</a></li>
-								<li><a href="documentos/ConvencaoRegistrada.pdf" target="_blank"> Convenção </a></li>
-								<li><a href="documentos/RegimentoInterno.pdf" target="_blank"> Regimento</a></li>
-								<li><a href="negociacoes.php"> Negociações </a></li>
+								<li><a href="http://www.sistema.totalville101.com.br" target="_blank"> Reservas</a></li>
+								<li><a href="../assembleias.php"> Assembléias</a></li>
+								<li><a href="../documentos/ConvencaoRegistrada.pdf" target="_blank"> Convenção </a></li>
+								<li><a href="../documentos/RegimentoInterno.pdf" target="_blank"> Regimento</a></li>
+								<li><a href="../eel.php" target="_blank"> Esporte</a></li>
+								<li><a href="../eventos.php" target="_blank"> Eventos</a></li>
+								<?php
+								if(isset($_SESSION['usuario']) && empty($_SESSION['usuario'])== false){
+									if($categoria_pf == 1){
+										echo'<li><a href="../sistema/diretoria.php"> Diretoria </a></li>';
+										}else{
+											if($categoria_pf > 1 AND $categoria_pf < 10){
+											echo'<li><a href="../sistema/administrativo.php"> Administrativo </a></li>';	
+												}else{
+													if($categoria_pf >= 10){
+													echo'<li><a href="../sistema/esp_condomino.php">Espaço do Condômino</a></li>';
+												}
+											}
+										}
+									}else{
+										echo'<li><a href="login.php">Login</a></li>';
+									}
+								?>
 							</ul>
 						</nav>
 					</div>
@@ -47,7 +79,7 @@
 			</header>
 			<div class="sessao">
 <?php
-			session_start();
+			
 			if(isset($_SESSION['usuario']) && empty($_SESSION['usuario'])== false){
 
                     $usuario= addslashes($_SESSION['usuario']);
@@ -56,6 +88,7 @@
                     $dados = $sql->fetch();
                     $cpf=$dados['cpf'];
                     $nome_pf=$dados['nome_pf'];
+                    $categoria_pf=$dados['categoria_pf'];
                     
                     
                         echo''.$nome_pf.' CPF: '.$cpf.'';
@@ -77,7 +110,7 @@
 			<section id="corpo">
 				<div class="Corpocontainer">
 					<article>
-						<a href="reserva.php"><div class="Articleopcoes">
+						<a href="http://www.sistema.totalville101.com.br" target="_blank"><div class="Articleopcoes">
 							<div class="projeto_titulo">Reserva de Churrasqueira  
 								</div>
 								<div class="projeto_linha">
@@ -91,21 +124,8 @@
 								</div>	
 							</div></a>	
 						
-						<a href="atas.php"><div class="Articleopcoes">
-							<div class="projeto_titulo">Assembleia Mista Online 
-								</div>
-								<div class="projeto_linha">
-								</div>
-								<div class="projeto_imagem">
-									<img src="imagens/assembleia.png">
-								</div>
-								<div class="projeto_texto">
-									Participar e votar em Assembléia de Condomínio nunca ficou tão fácil. 
-									Com seu cadastro devidamente atualizado, você poderá participar de assembleias sem sair de casa.
-								</div>	
-							</div></a>
 						
-						<a href="reserva.php"><div class="Articleopcoes">
+						<a href="http://www.sistema.totalville101.com.br" target="_blank"><div class="Articleopcoes">
 							<div class="projeto_titulo">Reserva do Salão de Festa
 								</div>
 								<div class="projeto_linha">
@@ -119,19 +139,6 @@
 								</div>	
 							</div></a>
 						
-						<a href="negociacoes.php"><div class="Articleopcoes">
-							<div class="projeto_titulo">Negociações
-								</div>
-								<div class="projeto_linha">
-								</div>
-								<div class="projeto_imagem">
-									<img src="imagens/negociacao.jpg">
-								</div>
-								<div class="projeto_texto">
-								Negocie suas taxas condominiais em atraso sem burocracia e com parcelamentos em até 12x. 
-								Pagamentos por cartão de crédito ou diretamente em boletos.	
-								</div>	
-							</div></a>
 						<a href="eel.php" target="_blank"><div class="Articleopcoes">
 							<div class="projeto_titulo">Educação Esporte e Lazer
 								</div>
@@ -145,17 +152,17 @@
 									<br> Levando mais saúde e Qualidade de Vida para dentro do nosso condomínio
 								</div>	
 							</div></a>
-						<a href="classificados.php"><div class="Articleopcoes">
-							<div class="projeto_titulo">Classificados
+						<a href="eventos.php"><div class="Articleopcoes">
+							<div class="projeto_titulo">Festas e Eventos
 								</div>
 								<div class="projeto_linha">
 								</div>
 								<div class="projeto_imagem">
-									<img src="imagens/classificados.jpg">
+									<img src="imagens/eventos.jpg">
 								</div>
 								<div class="projeto_texto">
-									Ofereça gratuitamente para vizinhança seus serviços e produtos e aumente sua renda.
-									Condôminos, o melhor produtos pode estar ao lado de sua casa. Conheça mais...
+									Acompanhe os eventos realizados em seu condomínio e confira as fotos e vídeos das festas
+									<br>Cadastre sua participação nos próximos eventos
 								</div>	
 							</div></a>
 					</article>
@@ -174,16 +181,16 @@
 										<b><center>Regimento Interno</center></b>
 										<img src="imagens/pasta3.png">
 									</div></a>
-									<a href="documentos/orcamento2018.pdf" target="_blank"><div class="filiadas">
+									<a href="documentos/previsao2019_2020.pdf" target="_blank"><div class="filiadas">
 										<b><center>Planej. Orçamentário</center></b>
 										<img src="imagens/planejamento.png">
 									</div>
-									<a href="atas.php"><div class="filiadas">
+									<a href="assembleias.php"><div class="filiadas">
 										<b><center>Atas de Assembléia</center></b>
 										<img src="imagens/assembleia2.png">
 									</div></a>
-									<a href="sindico.php"><div class="filiadas">
-										<b><center>Responsável Legal</center></b>
+									<a href="http://www.g7condominios.com.br" target="_blank"><div class="filiadas">
+										<b><center>Administração</center></b>
 										<img src="imagens/responsavel.png">
 									</div></a>
 									<a href="contratos.php"><div class="filiadas">
@@ -199,27 +206,27 @@
 							<div class="projeto_linha">
 							</div>
 							<div class="projeto_filiadas">
-									<a href="receitas.php"><div class="filiadas">
+									<a href="http://www.sistema.totalville101.com.br" target="_blank"><div class="filiadas">
 										<b><center>Receitas</center></b>
 										<img src="imagens/grafica.jpg">
 									</div></a>
-									<a href="despesas.php"><div class="filiadas">
+									<a href="http://www.sistema.totalville101.com.br" target="_blank"><div class="filiadas">
 										<b><center>Despesas</center></b>
 										<img src="imagens/despesas.png">
 									</div></a>
-									<a href="extra.php"><div class="filiadas">
+									<a href="http://www.sistema.totalville101.com.br" target="_blank"><div class="filiadas">
 										<b><center>Taxa Extra</center></b>
 										<img src="imagens/grafica2.png">
 									</div></a>
-									<a href="fopag.php"><div class="filiadas">
+									<a href="http://www.sistema.totalville101.com.br" target="_blank"><div class="filiadas">
 										<b><center>Folha de Pagamento</center></b>
 										<img src="imagens/folhapg2.png">
 									</div></a>
-									<a href="inadimplencia.php"><div class="filiadas">
+									<a href="http://www.sistema.totalville101.com.br" target="_blank"><div class="filiadas">
 										<b><center>Inadimplência</center></b>
 										<img src="imagens/inadimplencia.png">
 									</div></a>
-									<a href="fundo.php"><div class="filiadas">
+									<a href="http://www.sistema.totalville101.com.br" target="_blank"><div class="filiadas">
 										<b><center>Fundo de Reserva</center></b>
 										<img src="imagens/fundoreserva.jpg">
 									</div></a>
