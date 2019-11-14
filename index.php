@@ -78,7 +78,7 @@
 				<div class="Corpocontainer">
 					<article>
 						<a href="reserva.php"><div class="Articleopcoes">
-							<div class="projeto_titulo">Reserva de Churrasqueira 
+							<div class="projeto_titulo">Reserva de Churrasqueira  
 								</div>
 								<div class="projeto_linha">
 								</div>
@@ -250,7 +250,7 @@
 							</div>
 							<div class="projeto_linha">
 							</div>
-								<a href="mailto:kelita.farias@totalville101.com.br">Síndico</a>
+								<a href="mailto:sindico@totalville101.com.br">Síndico</a>
 								<a href="mailto:admnistracao@totalville101.com.br">Administração</a>
 								<a href="mailto:conselho.fiscal@totalville101.com.br">Conselho Fiscal</a>
 					</div>
