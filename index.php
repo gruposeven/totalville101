@@ -177,7 +177,7 @@
 										<b><center>Convenção Coletiva</center></b>
 										<img src="imagens/convencao.png">
 									</div></a>
-									<a href="documentos/RegimentoInterno.pdf" target="_blank"><div class="filiadas">
+									<a href="../regimento.php" target="_blank"><div class="filiadas">
 										<b><center>Regimento Interno</center></b>
 										<img src="imagens/pasta3.png">
 									</div></a>
