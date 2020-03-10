@@ -52,7 +52,7 @@
 								<li><a href="http://www.sistema.totalville101.com.br" target="_blank"> Reservas</a></li>
 								<li><a href="../assembleias.php"> Assembléias</a></li>
 								<li><a href="../documentos/ConvencaoRegistrada.pdf" target="_blank"> Convenção </a></li>
-								<li><a href="../documentos/RegimentoInterno.pdf" target="_blank"> Regimento</a></li>
+								<li><a href="../regimento.php" target="_blank"> Regimento</a></li>
 								<li><a href="../eel.php" target="_blank"> Esporte</a></li>
 								<li><a href="../eventos.php" target="_blank"> Eventos</a></li>
 								<?php

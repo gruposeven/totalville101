@@ -107,8 +107,23 @@
 					<div class="Corpocontainer">
 						<!-- Artigos-->
 						<article>
-							<a href="" target="_blank"><div class="Articleopcoes">
-								<div class="projeto_titulo">Contrato - Administradora
+							<a href="../NovoRegimentoInterno.htm" target="_blank"><div class="Articleopcoes">
+								<div class="projeto_titulo">Novo Regimento Interno 
+								</div>
+								<div class="projeto_linha">
+								</div>
+								<div class="projeto_imagem">
+									<img src="imagens/assembleia.png">
+								</div>
+								<div class="projeto_texto">
+									Proposta da administração e Subsíndicos<br>
+									Deliberação Assembleia dia 22 de março 2020<br>
+									 
+								</div>	
+							</div></a>	
+							
+							<a href="http://www.regimento.totalville101.com.br" target="_blank"><div class="Articleopcoes">
+								<div class="projeto_titulo">Sugestão de Alteração ou Inclusão
 								</div>
 								<div class="projeto_linha">
 								</div>
@@ -116,51 +131,15 @@
 									<img src="imagens/grafica2.png">
 								</div>
 								<div class="projeto_texto">
-									 
+									Dê sua sugestão para alteração e inclusão de tópico do Regimento Interno<br>
+									Data limite para apresentação de sugestão:16/03/2020<br>
+									
 								</div>	
 							</div></a>	
-							
-							<a href="" target="_blank"><div class="Articleopcoes">
-								<div class="projeto_titulo">Contrato - Terceirização 
-								</div>
-								<div class="projeto_linha">
-								</div>
-								<div class="projeto_imagem">
-									<img src="imagens/folhapg.png">
-								</div>
-								<div class="projeto_texto">
-									Contrato finalizado em 31 de Julho de 2018
-								</div>	
-							</div></a>
-	
-							<a href="" target="_blank"><div class="Articleopcoes">
-								<div class="projeto_titulo">Contrato - Medição de Água
-								</div>
-								<div class="projeto_linha">
-								</div>
-								<div class="projeto_imagem">
-									<img src="imagens/grafica.jpg">
-								</div>
-								<div class="projeto_texto">
-									 
-								</div>	
-							</div></a>	
-
-							<a href="" target="_blank"><div class="Articleopcoes">
-								<div class="projeto_titulo">Contrato - Medição de Água
-								</div>
-								<div class="projeto_linha">
-								</div>
-								<div class="projeto_imagem">
-									<img src="imagens/grafica.jpg">
-								</div>
-								<div class="projeto_texto">
-									 Aditivo de contrato - 07 de Fevereiro de 2018
-								</div>	
-							</div></a>	
-
-						</div>
-					</section>
+						</article>
+					</div>
+				</section>		
+					<!-- CORPO-->
 <!--Rodapé-->
 			<footer>
 				<div class="Menucontainer">
@@ -192,5 +171,3 @@
 		</body>
 	</head>
 </html>
-
-
